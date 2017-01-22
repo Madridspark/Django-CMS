@@ -1,0 +1,137 @@
+header
+{
+    z-index: 9;    
+    position: fixed;
+    top: 0;
+    padding: 7px 0 6px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.nav-fixed
+{
+    height: 50px;
+}
+
+.nav-content
+{
+    line-height: 50px;
+}
+
+.nav-aside
+{
+    margin-left: 4em;
+    margin-right: 1em;
+}
+
+.nav-list li
+{
+    margin: 0 1em;
+    display: inline;
+}
+
+.nav-list li:hover
+{
+    cursor: pointer;
+}
+
+.hero
+{
+    position: relative;
+    margin-top: 64px;
+    height: 500px;
+    line-height: 500px;
+    background-color: #777;
+    font-size: 10em;
+    text-align: center;
+}
+
+.hero-curr
+{
+    z-index: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+}
+
+.rolling-btn
+{
+    position: absolute;
+    margin-top: 220px;
+    width: 100px;
+    height: 60px;
+    background-color: #000;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.rolling-btn:hover
+{
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.art-disp
+{
+    width: 800px;
+}
+
+.arts-list
+{
+    width: 400px;
+    margin: 2em 0;
+}
+
+.arts-list li
+{
+    margin: 1em;
+}
+
+.art-aside
+{
+    width: 300px;
+}
+
+footer
+{
+    padding: 20px 0 10px;
+    background-color: #333;
+}
+
+.foot-friends
+{
+    text-align: center;
+}
+
+.foot-about
+{
+    position: relative;
+    text-align: right;
+}
+
+.foot-about span
+{
+    position: absolute;
+    left: 10px;
+}
+
+.foot-about li
+{
+    display: inline-block;
+    margin: 5px 1em;
+    padding: 0.2em 2em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/*.foot-about li + li::before
+{
+    content: "•";
+    margin-right: 3px;
+    padding: 0px 3px;
+    font-family: Arial;
+    color: #999;
+}*/
