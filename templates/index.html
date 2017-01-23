@@ -9,14 +9,15 @@
         <header class="">
             <div class="font-base wrap color-6 nav-fixed">
                 <h2 class="font-16 nav-content fl">
-                    {{ hello }}
+                    网站标题
                 </h2>
                 <nav class="nav-content fr">
                     <ul class="color-3 font-15 nav-list fl">
-                        <li>下拉菜单</li>
-                        <li>下拉菜单</li>
-                        <li>下拉菜单</li>
-                        <li>下拉菜单</li>
+                        {% for column in  columns %}
+                            <li>
+                                <a href="{{ column.get_absolute_url }}">{{ column.name }}</a>
+                            </li>
+                        {% endfor %}
                     </ul>
                     <div class="font-14 nav-aside nav-content fl">
                         <a href="#">登录</a>
