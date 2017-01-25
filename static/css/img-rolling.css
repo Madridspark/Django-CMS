@@ -1,0 +1,52 @@
+.hero-curr, .hero-curr ul, .hero-curr li, .hero-curr a
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.hero-curr
+{
+    z-index: 0;
+    background-color: #fff;
+}
+
+.hero-curr ul li
+{
+    z-index: 1;
+    display:none;
+}
+
+.rolling-btn
+{
+    z-index: 2;
+    position: absolute;
+    margin-top: 215px;
+    width: 41px;
+    height: 69px;
+    background: url(../img/rolling-btn.png) no-repeat 50%;
+}
+
+.rollingl
+{
+    background-position: -85px;
+}
+
+.rollingr
+{
+    background-position: -125px;
+}
+
+.rollingl:hover
+{
+    cursor: pointer;
+    background-position: 0px;
+}
+
+.rollingr:hover
+{
+    cursor: pointer;
+    background-position: -42px;
+}

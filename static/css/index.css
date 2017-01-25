@@ -46,53 +46,123 @@ header
     text-align: center;
 }
 
-.hero-curr
-{
-    z-index: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #fff;
-}
-
-.rolling-btn
-{
-    position: absolute;
-    margin-top: 220px;
-    width: 100px;
-    height: 60px;
-    background-color: #000;
-    opacity: 0;
-    transition: opacity 0.5s;
-}
-
-.rolling-btn:hover
-{
-    opacity: 0.5;
-    cursor: pointer;
-}
-
 .art-disp
 {
     width: 800px;
+    margin-bottom: 30px;
 }
 
 .arts-list
 {
-    width: 400px;
-    margin: 2em 0;
+    width: 780px;
+    margin-top: 3em;
+    padding-bottom: 2em;
+    border-bottom: 1px solid #ccc;
+    position: relative;
+}
+
+.arts-list-last
+{
+    border: none;
+}
+
+.arts-list h3
+{
+    margin-left: 1em;
+    margin-bottom: 1em;
+    color: #000;
 }
 
 .arts-list li
 {
-    margin: 1em;
+    position: relative;
+    padding: 0.5em 1em;
+    background: url(../img/idx-li.png) 0 16px no-repeat;
+}
+
+.arts-list a:hover
+{
+    text-decoration: underline;
+}
+
+.list-more
+{
+    position: absolute;
+    top: 0;
+    right: 10px;
+    line-height: 30px;
+}
+
+.list-about p
+{
+    line-height: 2em;
+    margin: 0.5em 0;
+    text-indent: 2em;
+}
+
+.list-teammates
+{
+    padding: 1em 0 1em 50px;
+    vertical-align: top;
+}
+
+.list-teammates li
+{
+    display: block;
+    text-align: center;
+    width: 15em;
+    padding: 0 1em;
+    background: none;
+}
+
+.list-teammates li p
+{
+    text-indent: 0;
+    margin: 1em 0;
+}
+
+.list-teammates img
+{
+    border-radius: 50%;
 }
 
 .art-aside
 {
-    width: 300px;
+    width: 310px;
+    margin-top: 2em;
+    padding: 0 10px 2em 29px;
+    border-left: 1px solid #3091C6;
+}
+
+.art-aside h3
+{
+    margin: 1em 0;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.aside-nums li
+{
+    display: inline-block;
+    margin: 1em 2em 1em 0;
+}
+
+.aside-nums li p:first-of-type
+{
+    color: #fe5656;
+    font-size: 1.7em;
+}
+
+.aside-video
+{
+    margin: 2em 0;
+}
+
+#aside-comm-all
+{
+    margin-top: 1em;
+    text-align: right;
+    color: #39C;
 }
 
 footer

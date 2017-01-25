@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="static/css/base.css">
         <link rel="stylesheet" type="text/css" href="static/css/index.css">
+        <link rel="stylesheet" type="text/css" href="static/css/img-rolling.css">
     </head>
     <body>
         <header class="">
@@ -13,11 +14,10 @@
                 </h2>
                 <nav class="nav-content fr">
                     <ul class="color-3 font-15 nav-list fl">
-                        {% for column in  columns %}
-                            <li>
-                                <a href="{{ column.get_absolute_url }}">{{ column.name }}</a>
-                            </li>
-                        {% endfor %}
+                        <li><a href="#">我的大学</a></li>
+                        <li><a href="#">高校动态</a></li>
+                        <li><a href="#">论坛</a></li>
+                        <li><a href="#">关于本站</a></li>
                     </ul>
                     <div class="font-14 nav-aside nav-content fl">
                         <a href="#">登录</a>
@@ -27,63 +27,152 @@
                 </nav>
             </div>
         </header>
-        <section class="color-3 hero">
+        <div class="color-3 hero">
             Hero Loading...
             <div id="img-rolling" class="hero-curr">
-                <div class="rolling-btn absl"></div>
-                <div class="rolling-btn absr"></div>
+                <div class="rollingl rolling-btn absl"></div>
+                <ul>
+                    <li><a style="background:red" href="/a"></a></li>
+                    <li><a style="background:green;" href="/b"></a></li>
+                    <li><a style="background:gray;" href="/c"></a></li>
+                    <li><a style="background:orange;" href="/d"></a></li>
+                </ul>
+                <div class="rollingr rolling-btn absr"></div>
             </div>
-        </section>
+        </div>
         <article class="art wrap">
-            <section class="art-disp fl font-14">
-                <ul class="arts-list fl">
-                    <h3 class="font-16">分类标题</h3>
-                    <li><a href="#">跳转到详情页。。。</a></li>
-                    <li><a href="#">跳转到详情页。。。</a></li>
-                    <li><a href="#">跳转到详情页。。。</a></li>
-                    <li><a href="#">跳转到详情页。。。</a></li>
-                </ul>
-                <ul class="arts-list fl">
-                    <h3 class="font-16">分类标题</h3>
-                    <li><a href="#">跳转到详情页。。。</a></li>
-                    <li><a href="#">跳转到详情页。。。</a></li>
-                    <li><a href="#">跳转到详情页。。。</a></li>
-                    <li><a href="#">跳转到详情页。。。</a></li>
-                </ul>
-                <ul class="arts-list fl">
-                    <h3 class="font-16">分类标题</h3>
-                    <li><a href="#">跳转到详情页。。。</a></li>
-                    <li><a href="#">跳转到详情页。。。</a></li>
-                    <li><a href="#">跳转到详情页。。。</a></li>
-                    <li><a href="#">跳转到详情页。。。</a></li>
-                </ul>
-                <ul class="arts-list fl">
-                    <h3 class="font-16">分类标题</h3>
-                    <li><a href="#">跳转到详情页。。。</a></li>
-                    <li><a href="#">跳转到详情页。。。</a></li>
-                    <li><a href="#">跳转到详情页。。。</a></li>
-                    <li><a href="#">跳转到详情页。。。</a></li>
-                </ul>
-                <ul class="arts-list fl">
-                    <h3 class="font-16">分类标题</h3>
-                    <li><a href="#">跳转到详情页。。。</a></li>
-                    <li><a href="#">跳转到详情页。。。</a></li>
-                    <li><a href="#">跳转到详情页。。。</a></li>
-                    <li><a href="#">跳转到详情页。。。</a></li>
-                </ul>
-                <ul class="arts-list fl">
-                    <h3 class="font-16">分类标题</h3>
-                    <li><a href="#">跳转到详情页。。。</a></li>
-                    <li><a href="#">跳转到详情页。。。</a></li>
-                    <li><a href="#">跳转到详情页。。。</a></li>
-                    <li><a href="#">跳转到详情页。。。</a></li>
-                </ul>
+            <div class="art-disp fl font-14 color-5">
+                <div class="arts-list fl">
+                    <h3 class="font-16">高校动态</h3>
+                    <a href="#" class="list-more color-a">更多>></a>
+                    <ul>
+                        <li><a href="#">限行升级！25日全市限行尾号5和0</a></li>
+                        <li><a href="#">2107西安春节门票免费抢票攻略（入口+操作提示）</a></li>
+                        <li><a href="#">跳转到详情页。。。</a></li>
+                        <li><a href="#">跳转到详情页。。。</a></li>
+                        <li><a href="#">跳转到详情页。。。</a></li>
+                        <li><a href="#">跳转到详情页。。。</a></li>
+                        <li><a href="#">跳转到详情页。。。</a></li>
+                    </ul>
+                </div>
+                <div class="arts-list fl">
+                    <h3 class="font-16">高校秘密</h3>
+                    <a href="#" class="list-more color-a">更多>></a>
+                    <ul>
+                        <li><a href="#">跳转到详情页。。。</a></li>
+                        <li><a href="#">跳转到详情页。。。</a></li>
+                        <li><a href="#">跳转到详情页。。。</a></li>
+                        <li><a href="#">跳转到详情页。。。</a></li>
+                    </ul>
+                </div>
+                <div class="arts-list fl">
+                    <h3 class="font-16">网站简介</h3>
+                    <div class="list-about font-12">
+                        <p>2001年，天朗创建于古都西安，是一家以文化为发展动力，投资、资本、地产、文化、产业、健康、教育和社区服务为主营业务的全国性企业集团。</p>
+                        <p>在十余年的创业征程中，天朗从单一的住宅地产开发到城市基础产业的投资与运营，从人居物理空间的建设到城市生活氛围的整体营造，逐步探索出一条“发展文化、提升产业、改善环境、保障民生”的新型城镇化创新路径，并华丽转身为“中国城镇化产业运营商”。</p>
+                    </div>
+                </div>
+                <div class="arts-list arts-list-last fl">
+                    <h3 class="font-16">管理团队</h3>
+                    <ul class="list-teammates">
+                        <li class="fl">
+                            <img width="150" height="150" src="static/img/head-test.jpg">
+                            <h4 class="font-13 color-0">张三</h4>
+                            <p>长安大学扛把子</p>
+                        </li>
+                        <li class="fl">
+                            <img width="150" height="150" src="static/img/head-test.jpg">
+                            <h4 class="font-13 color-0">张三</h4>
+                            <p>长安大学扛把子</p>
+                        </li>
+                        <li class="fl">
+                            <img width="150" height="150" src="static/img/head-test.jpg">
+                            <h4 class="font-13 color-0">张三</h4>
+                            <p>长安大学扛把子</p>
+                        </li>
+                        <li class="clearf"></li>
+                    </ul>
+                    <ul class="list-teammates">
+                        <li class="fl">
+                            <img width="150" height="150" src="static/img/head-test.jpg">
+                            <h4 class="font-13 color-0">张三</h4>
+                            <p>长安大学扛把子</p>
+                        </li>
+                        <li class="fl">
+                            <img width="150" height="150" src="static/img/head-test.jpg">
+                            <h4 class="font-13 color-0">张三</h4>
+                            <p>长安大学扛把子</p>
+                        </li>
+                        <li class="fl">
+                            <img width="150" height="150" src="static/img/head-test.jpg">
+                            <h4 class="font-13 color-0">张三</h4>
+                            <p>长安大学扛把子</p>
+                        </li>
+                        <li class="clearf"></li>
+                    </ul>
+                </div>
                 <div class="clearf"></div>
-            </section>
+            </div>
 
-            <section class="art-aside fr">
-                gasgasdgasd<br><br>
-            </section>
+            <div class="art-aside fr font-14">
+                <ul class="aside-nums">
+                    <li>
+                        <p>99999</p>
+                        <p>访问量</p>
+                    </li>
+                    <li>
+                        <p>99999</p>
+                        <p>注册人数</p>
+                    </li>
+                    <li>
+                        <p>99999</p>
+                        <p>合作伙伴</p>
+                    </li>
+                </ul>
+                <div class="aside-video">
+                    <h3>本站宣传视频</h3>
+                    <video width="310" height="240" controls="controls" autoplay="autoplay">
+                        <source src="/i/movie.ogg" type="video/ogg" />
+                        <source src="/i/movie.mp4" type="video/mp4" />
+                        <source src="/i/movie.webm" type="video/webm" />
+                        <object data="/i/movie.mp4" width="310" height="240">
+                            <embed width="310" height="240" src="/i/movie.swf" />
+                        </object>
+                    </video>
+                </div>
+                <div class="aside-addition">
+                    <h3>特别关注</h3>
+                    <a href="#">
+                        <img width="310" height="240" src="">
+                    </a>
+                </div>
+                <div class="aside-comm">
+                    <h3>联系方式</h3>
+                    <table>
+                        <tr>
+                            <td>电话</td>
+                            <td>1234567890</td>
+                        </tr>
+                        <tr>
+                            <td>电话</td>
+                            <td>1234567890</td>
+                        </tr>
+                        <tr>
+                            <td>电话</td>
+                            <td>1234567890</td>
+                        </tr>
+                        <tr>
+                            <td>电话</td>
+                            <td>1234567890</td>
+                        </tr>
+                        <tr>
+                            <td>电话</td>
+                            <td>1234567890</td>
+                        </tr>
+                    </table>
+                    <p id="aside-comm-all"><a href="#">各高校负责人联系方式>></a></p>
+                </div>
+            </div>
             <div class="clearf"></div>
         </article>
         <footer>
@@ -95,5 +184,8 @@
                 <li><a href="#">加入我们</a></li>
             </ul>
         </footer>
+        <script src="static/js/jquery-3.1.1.min.js"></script>
+        <script src="static/js/img-rolling.js"></script>
+        <script src="static/js/index.js"></script>
     </body>
 </html>
