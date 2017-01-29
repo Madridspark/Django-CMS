@@ -158,6 +158,16 @@ header
     margin: 2em 0;
 }
 
+.aside-comm table tr
+{
+    vertical-align: middle;
+}
+
+.aside-comm table td
+{
+    padding: 5px 5px;
+}
+
 #aside-comm-all
 {
     margin-top: 1em;
