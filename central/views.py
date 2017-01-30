@@ -2,7 +2,7 @@
 import os
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from models import StaticInfo, StaticTeammates, HeroImages
+from models import StaticInfo, StaticTeammates, HeroImages, Page1Video
 
 def index(request):
     personList = StaticTeammates.objects.all()
@@ -20,6 +20,7 @@ def index(request):
         'staticTeammates' : staticTeammates,
         'staticInfo' : StaticInfo.objects.all()[0],
         'heroImages' : HeroImages.objects.exclude(theHeroTitle='特别关注'),
-        'noticeImage' : HeroImages.objects.filter(theHeroTitle='特别关注')[0]
+        'noticeImage' : HeroImages.objects.filter(theHeroTitle='特别关注')[0],
+        'videoFiles' : Page1Video.objects.all()[0]
     }
     return render(request, 'central_index.html', context)

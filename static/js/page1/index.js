@@ -1,0 +1,4 @@
+$(function()
+{
+    rollingInit("#img-rolling");
+});

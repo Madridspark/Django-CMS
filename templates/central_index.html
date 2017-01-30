@@ -3,15 +3,15 @@
     <head>
         <meta charset="utf-8">
         <title>{% block title %}首页{% endblock %} - {{ staticInfo.theName }}</title>
-        <link rel="stylesheet" type="text/css" href="static/css/base.css">
-        <link rel="stylesheet" type="text/css" href="static/css/index.css">
+        <link rel="stylesheet" type="text/css" href="static/css/page1/base.css">
+        <link rel="stylesheet" type="text/css" href="static/css/page1/index.css">
         <link rel="stylesheet" type="text/css" href="static/css/img-rolling.css">
         <link rel="stylesheet" type="text/css" href="static/fonts/page1/iconfont.css">
     </head>
     <body>
-        <header class="">
+        <header>
             <div class="font-base wrap color-6 nav-fixed">
-                <h2 class="font-16 nav-content fl">
+                <h2 style="background-image: url(/static/upload/{{ staticInfo.theLogo }});" class="font-16 nav-content fl">
                     {{ staticInfo.theName }}
                 </h2>
                 <nav class="nav-content fr">
@@ -98,19 +98,19 @@
                 </ul>
                 <div class="aside-video">
                     <h3>本站宣传视频</h3>
-                    <video width="310" height="240" controls="controls" autoplay="autoplay">
-                        <source src="/i/movie.ogg" type="video/ogg" />
-                        <source src="/i/movie.mp4" type="video/mp4" />
-                        <source src="/i/movie.webm" type="video/webm" />
-                        <object data="/i/movie.mp4" width="310" height="240">
-                            <embed width="310" height="240" src="/i/movie.swf" />
-                        </object>
+                    <video width="310" controls="controls">
+                        <!--<source src="static/upload/{{ videoFiles.OGG }}" type="video/ogg" />-->
+                        <source src="static/upload/{{ videoFiles.MP4 }}" type="video/mp4" />
+                        <!--<source src="static/upload/{{ videoFiles.WEBM }}" type="video/webm" />
+                        <object data="static/upload/{{ videoFiles.MP4 }}" width="310">
+                            <embed width="310" src="static/upload/{{ videoFiles.SWF }}" />
+                        </object>-->
                     </video>
                 </div>
                 <div class="aside-addition">
                     <h3>特别关注</h3>
                     <a href="{{ noticeImage.theLink }}">
-                        <img width="310" height="240" src="static/upload/{{ noticeImage.theImage }}">
+                        <img width="310" src="static/upload/{{ noticeImage.theImage }}">
                     </a>
                 </div>
                 <div class="aside-comm">
@@ -140,13 +140,13 @@
         </article>
         <footer>
             <ul class="foot-about font-12 color-c">
-                <span>© {{ staticInfo.theName }} 2017</span>
+                <span>© 2017 {{ staticInfo.theLink }}</span>
                 <li><a href="#">提建议、求助，请联系我们</a></li>
                 <li><a href="#">加入我们</a></li>
             </ul>
         </footer>
         <script src="static/js/jquery-3.1.1.min.js"></script>
         <script src="static/js/img-rolling.js"></script>
-        <script src="static/js/index.js"></script>
+        <script src="static/js/page1/index.js"></script>
     </body>
 </html>

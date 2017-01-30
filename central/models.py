@@ -7,6 +7,8 @@ from django.core.urlresolvers import reverse
 @python_2_unicode_compatible
 class StaticInfo(models.Model):
     theName = models.CharField('本站名称', max_length=256)
+    theLink = models.CharField('本站网址', max_length=256)
+    theLogo = models.FileField('Logo', upload_to='./page1-logo-file/')
     theIntro = models.TextField('本站简介', default='')
     theVisits = models.IntegerField('访问量')
     theSigners = models.IntegerField('注册量')
@@ -50,3 +52,18 @@ class HeroImages(models.Model):
     class Meta:
         verbose_name = '轮播图片'
         verbose_name_plural = '轮播图片的链接和文件名'
+
+@python_2_unicode_compatible
+class Page1Video(models.Model):
+    theTitle = models.CharField('标题', max_length=256, unique=True)
+    OGG = models.FileField('ogg', upload_to='./page1-video-files/')
+    MP4 = models.FileField('mp4', upload_to='./page1-video-files/')
+    WEBM = models.FileField('webm', upload_to='./page1-video-files/')
+    SWF = models.FileField('swf', upload_to='./page1-video-files/')
+    
+    def __str__(self):
+        return self.theTitle
+
+    class Meta:
+        verbose_name = '宣传视频'
+        verbose_name_plural = '宣传视频'
