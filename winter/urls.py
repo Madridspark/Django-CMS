@@ -16,9 +16,11 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from central import views as centralViews
+from branch import views as branchViews
 
 urlpatterns = [
     url(r'^$', centralViews.index),
+    url(r'^branch/$', branchViews.index),
 
     # url(r'^column/(?P<column_link>[^/]+)/$', article_views.column_detail, name='column'),
     # url(r'^news/(?P<pk>\d+)/(?P<article_link>[^/]+)/$', article_views.article_detail, name='article'),

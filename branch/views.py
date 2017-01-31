@@ -4,4 +4,4 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
 def index(request):
-    return render(request, 'branch-index.html', context)
+    return render(request, 'branch-index.html', {})
