@@ -23,4 +23,4 @@ def index(request):
         'noticeImage' : HeroImages.objects.filter(theHeroTitle='特别关注')[0],
         'videoFiles' : Page1Video.objects.all()[0]
     }
-    return render(request, 'central_index.html', context)
+    return render(request, 'central-index.html', context)

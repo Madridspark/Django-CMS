@@ -8,7 +8,7 @@ from django.core.urlresolvers import reverse
 class StaticInfo(models.Model):
     theName = models.CharField('本站名称', max_length=256)
     theLink = models.CharField('本站网址', max_length=256)
-    theLogo = models.FileField('Logo', upload_to='./page1-logo-file/')
+    theLogo = models.FileField('Logo', upload_to='./central/logo-file/')
     theIntro = models.TextField('本站简介', default='')
     theVisits = models.IntegerField('访问量')
     theSigners = models.IntegerField('注册量')
@@ -30,7 +30,7 @@ class StaticInfo(models.Model):
 class StaticTeammates(models.Model):
     thePersonName = models.CharField('名字', max_length=256)
     thePersonIntro = models.TextField('简介', default='')
-    theHeaderImage = models.FileField('上传头像', upload_to='./page1-header-image-files/')
+    theHeaderImage = models.FileField('上传头像', upload_to='./central/header-image-files/')
 
     def __str__(self):
         return self.thePersonName
@@ -43,7 +43,7 @@ class StaticTeammates(models.Model):
 @python_2_unicode_compatible
 class HeroImages(models.Model):
     theHeroTitle = models.CharField('标题', max_length=256, unique=True)
-    theImage = models.FileField('上传文件', upload_to='./page1-hero-image-files/')
+    theImage = models.FileField('上传文件', upload_to='./central/hero-image-files/')
     theLink = models.TextField('超链接', default='')
     
     def __str__(self):
@@ -56,10 +56,10 @@ class HeroImages(models.Model):
 @python_2_unicode_compatible
 class Page1Video(models.Model):
     theTitle = models.CharField('标题', max_length=256, unique=True)
-    OGG = models.FileField('ogg', upload_to='./page1-video-files/')
-    MP4 = models.FileField('mp4', upload_to='./page1-video-files/')
-    WEBM = models.FileField('webm', upload_to='./page1-video-files/')
-    SWF = models.FileField('swf', upload_to='./page1-video-files/')
+    OGG = models.FileField('ogg', upload_to='./central/video-files/')
+    MP4 = models.FileField('mp4', upload_to='./central/video-files/')
+    WEBM = models.FileField('webm', upload_to='./central/video-files/')
+    SWF = models.FileField('swf', upload_to='./central/video-files/')
     
     def __str__(self):
         return self.theTitle

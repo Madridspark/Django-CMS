@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}首页{% endblock %} - {{ staticInfo.theName }}</title>
+        <link rel="stylesheet" type="text/css" href="static/css/central/base.css">
+        <link rel="stylesheet" type="text/css" href="static/css/central/index.css">
+        <link rel="stylesheet" type="text/css" href="static/css/img-rolling.css">
+        <link rel="stylesheet" type="text/css" href="static/fonts/central/iconfont.css">
+    </head>
+    <body>
+        <header>
+            <div class="font-base wrap color-6 nav-fixed">
+                <h2 style="background-image: url(/static/upload/{{ staticInfo.theLogo }});" class="font-16 nav-content fl">
+                    {{ staticInfo.theName }}
+                </h2>
+                <nav class="nav-content fr">
+                    <ul class="color-3 font-15 nav-list fl">
+                        <li><a href="#">我的大学</a></li>
+                        <li><a href="#">高校动态</a></li>
+                        <li><a href="#">论坛</a></li>
+                        <li><a href="#">关于本站</a></li>
+                    </ul>
+                    <div class="font-14 nav-aside nav-content fl">
+                        <a href="#">登录</a>
+                        <span>|</span>
+                        <a href="#">注册</a>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <div class="color-3 hero">
+            Loading...
+            <div id="img-rolling" class="hero-curr">
+                <div class="rollingl rolling-btn absl"></div>
+                <ul>
+                    {% for img in heroImages %}
+                    <li><a style="background-image:url(static/upload/{{ img.theImage }});" href="{{ img.theLink }}"></a></li>
+                    {% endfor %}
+                </ul>
+                <div class="rollingr rolling-btn absr"></div>
+            </div>
+        </div>
+        <article class="art wrap">
+            <div class="art-disp fl font-14 color-5">
+                <div class="arts-list fl">
+                    <h3 class="font-16">高校动态</h3>
+                    <a href="#" class="list-more color-a">更多>></a>
+                    <ul>
+                        <li><a href="#">跳转到详情页。。。</a></li>
+                    </ul>
+                </div>
+                <div class="arts-list fl">
+                    <h3 class="font-16">高校秘密</h3>
+                    <a href="#" class="list-more color-a">更多>></a>
+                    <ul>
+                        <li><a href="#">跳转到详情页。。。</a></li>
+                    </ul>
+                </div>
+                <div class="arts-list fl">
+                    <h3 class="font-16">网站简介</h3>
+                    <div class="list-about font-12">
+                        {{ staticInfo.theIntro|safe }}
+                    </div>
+                </div>
+                <div class="arts-list arts-list-last fl">
+                    <h3 class="font-16">管理团队</h3>
+                    {% for row in staticTeammates %}
+                    <ul class="list-teammates">
+                        {% for teammates in row %}
+                        <li class="fl">
+                            <img width="150" height="150" src="static/upload/{{ teammates.theHeaderImage }}">
+                            <h4 class="font-13 color-0">{{ teammates.thePersonName }}</h4>
+                            <p>{{ teammates.thePersonIntro }}</p>
+                        </li>
+                        {% endfor %}
+                        <li class="clearf"></li>
+                    </ul>
+                    {% endfor %}
+                </div>
+                <div class="clearf"></div>
+            </div>
+
+            <div class="art-aside fr font-14">
+                <ul class="aside-nums">
+                    <li>
+                        <p>{{ staticInfo.theVisits }}</p>
+                        <p>访问量</p>
+                    </li>
+                    <li>
+                        <p>{{ staticInfo.theSigners }}</p>
+                        <p>注册人数</p>
+                    </li>
+                    <li>
+                        <p>{{ staticInfo.thePartners }}</p>
+                        <p>合作伙伴</p>
+                    </li>
+                </ul>
+                <div class="aside-video">
+                    <h3>本站宣传视频</h3>
+                    <video width="310" controls="controls">
+                        <source src="static/upload/{{ videoFiles.OGG }}" type="video/ogg" />
+                        <source src="static/upload/{{ videoFiles.MP4 }}" type="video/mp4" />
+                        <source src="static/upload/{{ videoFiles.WEBM }}" type="video/webm" />
+                        <object data="static/upload/{{ videoFiles.MP4 }}" width="310">
+                            <embed width="310" src="static/upload/{{ videoFiles.SWF }}" />
+                        </object>
+                    </video>
+                </div>
+                <div class="aside-addition">
+                    <h3>特别关注</h3>
+                    <a href="{{ noticeImage.theLink }}">
+                        <img width="310" src="static/upload/{{ noticeImage.theImage }}">
+                    </a>
+                </div>
+                <div class="aside-comm">
+                    <h3>联系方式</h3>
+                    <table>
+                        <tr>
+                            <td class="iconfont">&#xe613;</td>
+                            <td>{{ staticInfo.theTEL }}</td>
+                        </tr>
+                        <tr>
+                            <td class="iconfont">&#xe636;</td>
+                            <td>{{ staticInfo.theEmail }}</td>
+                        </tr>
+                        <tr>
+                            <td class="iconfont">&#xe62d;</td>
+                            <td>{{ staticInfo.theAddress }}</td>
+                        </tr>
+                        <tr>
+                            <td class="iconfont">&#xe744;</td>
+                            <td>{{ staticInfo.thePostcode }}</td>
+                        </tr>
+                    </table>
+                    <p id="aside-comm-all"><a href="#">各高校负责人联系方式>></a></p>
+                </div>
+            </div>
+            <div class="clearf"></div>
+        </article>
+        <footer>
+            <ul class="foot-about font-12 color-c">
+                <span>© 2017 {{ staticInfo.theLink }}</span>
+                <li><a href="#">提建议、求助，请联系我们</a></li>
+                <li><a href="#">加入我们</a></li>
+            </ul>
+        </footer>
+        <script src="static/js/jquery-3.1.1.min.js"></script>
+        <script src="static/js/img-rolling.js"></script>
+        <script src="static/js/central/index.js"></script>
+    </body>
+</html>
