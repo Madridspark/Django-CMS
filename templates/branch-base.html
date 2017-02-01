@@ -2,41 +2,38 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>{% block title %}首页{% endblock %} - {{ branch }} - {{ section }}</title>
-        <link rel="stylesheet" type="text/css" href="static/css/base.css">
+        <title>{% block title %}首页{% endblock %} - {{ branch.name }} - {{ staticInfo.theName }}</title>
+        <link rel="stylesheet" type="text/css" href="/static/css/base.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/branch/base.css">
         {% block css %}
         {% endblock %}
     </head>
     <body>
         <header>
-            <div class="font-base wrap color-6 nav-fixed">
-                <h2 style="background-image: url(/static/upload/{{ staticInfo.theLogo }});" class="font-16 nav-content fl">
-                    {{ staticInfo.theName }}
-                </h2>
-                <nav class="nav-content fr">
-                    <ul class="color-3 font-15 nav-list fl">
-                        <li><a href="#">我的大学</a></li>
-                        <li><a href="#">高校动态</a></li>
-                        <li><a href="#">论坛</a></li>
-                        <li><a href="#">关于本站</a></li>
-                    </ul>
-                    <div class="font-14 nav-aside nav-content fl">
-                        <a href="#">登录</a>
-                        <span>|</span>
-                        <a href="#">注册</a>
-                    </div>
-                </nav>
-            </div>
+             <!--style="background-image: url({{ branch.hero }});"-->
+            <h2 class="font-36">
+                {{ staticInfo.theName }}<span class="font-14">[{{ branch.name }}]</span>
+            </h2>
+            <nav id="nav-bar" class="wrap color-6">
+                <ul class="color-3 font-15 nav-list">
+                    <li class="dis-inl"><a href="#">我的大学</a></li>
+                    <li class="dis-inl"><a href="#">高校动态</a></li>
+                    <li class="dis-inl"><a href="#">论坛</a></li>
+                    <li class="dis-inl"><a href="#">关于本站</a></li>
+                </ul>
+            </nav>
         </header>
-        
+        {% block content %}
+        {% endblock %}
         <footer>
-            <ul class="foot-about font-12 color-c">
-                <span>© 2017 {{ staticInfo.theLink }}</span>
+            <ul class="footer-about font-12 color-c">
+                <span>© 2017 <a href="http://{{ staticInfo.theLink }}">{{ staticInfo.theLink }}</a></span>
                 <li><a href="#">提建议、求助，请联系我们</a></li>
                 <li><a href="#">加入我们</a></li>
             </ul>
         </footer>
-        <script src="static/js/jquery-3.1.1.min.js"></script>
+        <script src="/static/js/jquery-3.1.1.min.js"></script>
+        <script src="/static/js/branch/base.js"></script>
         {% block js %}
         {% endblock %}
     </body>
