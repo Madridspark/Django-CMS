@@ -20,6 +20,8 @@ from branch import views as branchViews
 
 urlpatterns = [
     url(r'^$', centralViews.index),
+    url(r'^about/', centralViews.about),
+    url(r'^team/', centralViews.team),
     url(r'^branch/$', branchViews.index),
 
     # url(r'^column/(?P<column_link>[^/]+)/$', article_views.column_detail, name='column'),

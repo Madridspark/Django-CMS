@@ -1,0 +1,17 @@
+{% extends 'central/index.html' %}
+
+{% block title %}管理团队{% endblock %}
+{% block css %}{% endblock %}
+{% block hero %}{% endblock %}
+
+{% block content %}
+<article class="list-about">
+    <h1>管理团队</h1>
+    <div class="text-center">
+        <img src="/static/upload/{{ image }}">
+    </div>
+    {{ content|safe }}
+</article>
+{% endblock %}
+
+{% block js %}{% endblock %}

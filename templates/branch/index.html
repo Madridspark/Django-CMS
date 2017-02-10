@@ -1,0 +1,186 @@
+{% extends 'branch/base.html' %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="/static/css/branch/index.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/img-rolling.css">
+{% endblock %}
+{% block content %}
+    <div class="media-wrap">
+        <div class="hot-img-wrap font-30 fl img-rolling">
+            <div id="hot-img" class="img-rolling-curr">
+                <div class="rollingl rolling-btn absl"></div>
+                <ul>
+                    <li><a style="background-image:url(/static/upload/central/hero-image-files/test1.jpg);" href=""></a></li>
+                    <li><a style="background-image:url(/static/upload/central/hero-image-files/test1.jpg);" href=""></a></li>
+                    <li><a style="background-image:url(/static/upload/central/hero-image-files/test1.jpg);" href=""></a></li>
+                    <li><a style="background-image:url(/static/upload/central/hero-image-files/test1.jpg);" href=""></a></li>
+                </ul>
+                <div class="rollingr rolling-btn absr"></div>
+            </div>
+        </div>
+        <div class="hot-text-wrap font-30 fl">
+            <h3><a href="">热门信息</a></h3>
+            <ul id="hot-text" class="font-16">
+                <li>
+                    <a href="">
+                        <h4>热点标题</h4>
+                        <p>热点内容</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <h4>热点标题</h4>
+                        <p>热点内容热点内容热点内容热点内容热点内容热点内容热点内容热点内容热点内容热点内容热点内容热点内容热点内容</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <h4>热点标题</h4>
+                        <p>热点内容</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <h4>热点标题</h4>
+                        <p>热点内容</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <h4>热点标题</h4>
+                        <p>热点内容</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <h4>热点标题</h4>
+                        <p>热点内容</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <h4>热点标题</h4>
+                        <p>热点内容</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <h4>热点标题</h4>
+                        <p>热点内容</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="clearf"></div>        
+    </div>
+
+    <div class="columns-wrap">
+        {% for col in columns %}
+        <div class="columns fl">
+            <h3 class="font-18">
+                {{ col.name }}
+                <a href="column/{{ col.id }}" class="fr color-a">更多>></a>
+            </h3>
+            <ul class="font-14 color-8">
+                <li><a href="">测试文章标题。。。。</a></li>
+                <li><a href="">测试文章标题。。。。</a></li>
+                <li><a href="">测试文章标题。。。。</a></li>
+                <li><a href="">测试文章标题。。。。</a></li>
+                <li><a href="">测试文章标题。。。。</a></li>
+                <li><a href="">测试文章标题。。。。</a></li>
+                <li><a href="">测试文章标题。。。。</a></li>
+                <li><a href="">测试文章标题。。。。</a></li>
+            </ul>
+        </div>
+        {% endfor %}
+        <div class="clearf"></div>
+    </div>
+
+    <div class="friendly-links font-24 color-f">
+        <h3 class="fl">
+            友情链接
+        </h3>
+        <ul>
+            <li><a href=""><img ></a></li>
+        </ul>
+        <div class="clearf"></div>        
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+{% endblock %}
+
+{% block js %}
+    <script src="/static/js/img-rolling.js"></script>
+    <script src="/static/js/branch/index.js"></script>
+{% endblock %}

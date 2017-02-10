@@ -1,4 +1,4 @@
-function rollingInit(wrapName)
+function rollingInit(wrapName, callBack = null)
 {
     // --------图片轮播
     var btnl = $(wrapName + " .rollingl"),
@@ -7,11 +7,18 @@ function rollingInit(wrapName)
         wrap = $(wrapName);
     var i = 0,
         len = imgs.length-1,
-        isInit = false;
+        isInit = false,
+        time = 3000;
 
-    function toggle()
+    function toggleImage(index)
     {
-        imgs.eq(i).fadeIn(700).siblings().hide();        
+        i = index;
+        imgs.eq(i).fadeIn(700).siblings().hide();
+
+        if(callBack != null && callBack != undefined)
+        {
+            callBack(index);
+        }
     }
 
     var roll2l = function()
@@ -22,7 +29,7 @@ function rollingInit(wrapName)
         }
 
         i--;
-        toggle();
+        toggleImage(i);
     }
     var roll2r = function()
     {
@@ -32,8 +39,20 @@ function rollingInit(wrapName)
         }
 
         i++;
-        toggle();
+        toggleImage(i);
     };
+
+    var theTimer = 0;
+
+    var setInt = function()
+    {
+        theTimer = setInterval(roll2r, time);
+    }
+
+    var clearInt = function()
+    {
+        clearInterval(theTimer);
+    }
 
     imgs.eq(0).show();
 
@@ -48,18 +67,25 @@ function rollingInit(wrapName)
         btnr.click(roll2r);
 
         // 设置自动轮播
-        var time = setInterval(roll2r, 3000);
+        setInt();
         wrap.hover(function()
         {
-            clearInterval(time);
-            time = setInterval(roll2r,5000);
+            clearInt();
         }
         ,function()
         {
-            clearInterval(time);
-            time = setInterval(roll2r,3000);
+            setInt();
         });
     }
 
+
     // --------图片轮播 end ---
+
+    return (
+    {
+        index : i,
+        toggleImage : toggleImage,
+        setInt : setInt,
+        clearInt : clearInt
+    });
 }

@@ -4,12 +4,12 @@ from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
 from django.core.urlresolvers import reverse
 
+
 @python_2_unicode_compatible
 class StaticInfo(models.Model):
     theName = models.CharField('本站名称', max_length=256)
     theLink = models.CharField('本站网址', max_length=256)
     theLogo = models.FileField('Logo', upload_to='./central/logo-file/')
-    theIntro = models.TextField('本站简介', default='')
     theVisits = models.IntegerField('访问量')
     theSigners = models.IntegerField('注册量')
     thePartners = models.IntegerField('合作伙伴数')
@@ -27,17 +27,17 @@ class StaticInfo(models.Model):
 
 
 @python_2_unicode_compatible
-class StaticTeammates(models.Model):
-    thePersonName = models.CharField('名字', max_length=256)
-    thePersonIntro = models.TextField('简介', default='')
-    theHeaderImage = models.FileField('上传头像', upload_to='./central/header-image-files/')
+class StaticAbout(models.Model):
+    theTitle = models.CharField('标题', max_length=256, unique=True)
+    theContent = models.TextField('内容', default='')
+    theImage = models.FileField('封面', upload_to='./central/about-image-files/')
 
     def __str__(self):
-        return self.thePersonName
+        return self.theTitle
 
     class Meta:
-        verbose_name = '团队成员'
-        verbose_name_plural = '团队成员信息'
+        verbose_name = '网站简介与团队成员'
+        verbose_name_plural = '网站简介与团队成员'
 
 
 @python_2_unicode_compatible

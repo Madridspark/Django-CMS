@@ -1,4 +1,18 @@
-.hero-curr, .hero-curr ul, .hero-curr li, .hero-curr a
+.img-rolling
+{
+    position: relative;
+    height: 10em;
+    line-height: 10em;
+    background-color: #777;
+    text-align: center;
+}
+
+.img-rolling-curr ul li a
+{
+    background-position: center center;
+}
+
+.img-rolling-curr, .img-rolling-curr ul, .img-rolling-curr li, .img-rolling-curr a
 {
     position: absolute;
     top: 0;
@@ -7,13 +21,13 @@
     bottom: 0;
 }
 
-.hero-curr
+.img-rolling-curr
 {
     z-index: 0;
     background-color: #fff;
 }
 
-.hero-curr ul li
+.img-rolling-curr ul li
 {
     z-index: 1;
     display:none;
@@ -23,7 +37,6 @@
 {
     z-index: 2;
     position: absolute;
-    margin-top: 215px;
     width: 41px;
     height: 69px;
     background: url(/static/img/rolling-btn.png) no-repeat 50%;

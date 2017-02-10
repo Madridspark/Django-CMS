@@ -5,21 +5,24 @@
         <title>{% block title %}首页{% endblock %} - {{ staticInfo.theName }}</title>
         <link rel="stylesheet" type="text/css" href="/static/css/base.css">
         <link rel="stylesheet" type="text/css" href="/static/css/central/index.css">
-        <link rel="stylesheet" type="text/css" href="/static/css/img-rolling.css">
         <link rel="stylesheet" type="text/css" href="/static/fonts/central/iconfont.css">
+        {% block css %}
+        <link rel="stylesheet" type="text/css" href="/static/css/img-rolling.css">
+        {% endblock %}
     </head>
     <body>
         <header>
             <div class="wrap color-6 nav-fixed">
-                <h2 style="background-image: url(/static/upload/{{ staticInfo.theLogo }});" class="font-16 nav-content fl">
+                <a href="/"><h2 style="background-image: url(/static/upload/{{ staticInfo.theLogo }});" class="font-16 nav-content fl">
                     {{ staticInfo.theName }}
-                </h2>
+                </h2></a>
                 <nav class="nav-content fr">
                     <ul class="color-3 font-15 nav-list fl">
+                        <li><a href="/">首页</a></li>
                         <li><a href="/branch">我的大学</a></li>
-                        <li><a href="#">高校动态</a></li>
-                        <li><a href="#">论坛</a></li>
-                        <li><a href="#">关于本站</a></li>
+                        <li><a href="/current">高校动态</a></li>
+                        <li><a href="/bbs">论坛</a></li>
+                        <li><a href="/about">关于本站</a></li>
                     </ul>
                     <div class="font-14 nav-aside nav-content fl">
                         <a href="#">登录</a>
@@ -29,9 +32,10 @@
                 </nav>
             </div>
         </header>
-        <div class="color-3 hero">
+        {% block hero %}
+        <div class="color-3 hero-img img-rolling">
             Loading...
-            <div id="img-rolling" class="hero-curr">
+            <div id="hero" class="img-rolling-curr">
                 <div class="rollingl rolling-btn absl"></div>
                 <ul>
                     {% for img in heroImages %}
@@ -41,44 +45,42 @@
                 <div class="rollingr rolling-btn absr"></div>
             </div>
         </div>
-        <article class="art wrap">
+        {% endblock %}
+        <div class="art wrap">
             <div class="art-disp fl font-14 color-5">
-                <div class="arts-list fl">
-                    <h3 class="font-22">高校动态</h3>
-                    <a href="#" class="list-more color-a">更多>></a>
-                    <ul>
-                        <li><a href="#">跳转到详情页。。。</a></li>
-                    </ul>
-                </div>
-                <div class="arts-list fl">
-                    <h3 class="font-22">高校秘密</h3>
-                    <a href="#" class="list-more color-a">更多>></a>
-                    <ul>
-                        <li><a href="#">跳转到详情页。。。</a></li>
-                    </ul>
-                </div>
-                <div class="arts-list fl">
+            {% block content%}
+                <div class="fl">
                     <h3 class="font-22">网站简介</h3>
-                    <div class="list-about font-17">
-                        {{ staticInfo.theIntro|safe }}
+                    <a href="/about" class="list-more color-a">更多>></a>
+                    <div class="text-center"><img height="160" src="/static/upload/{{ intro.theImage }}"></div>
+                    <div class="list-content list-about font-17">
+                        {{ intro.theContent|safe }}
                     </div>
                 </div>
-                <div class="arts-list arts-list-last fl">
+                <div class="fl">
                     <h3 class="font-22">管理团队</h3>
-                    {% for row in staticTeammates %}
-                    <ul class="list-teammates">
-                        {% for teammates in row %}
-                        <li class="fl">
-                            <img width="150" height="150" src="/static/upload/{{ teammates.theHeaderImage }}">
-                            <h4 class="font-18 color-0">{{ teammates.thePersonName }}</h4>
-                            <p>{{ teammates.thePersonIntro }}</p>
-                        </li>
-                        {% endfor %}
-                        <li class="clearf"></li>
+                    <a href="/team" class="list-more color-a">更多>></a>
+                    <div class="text-center"><img height="160" src="/static/upload/{{ team.theImage }}"></div>
+                    <div class="list-content list-about font-17">
+                        {{ team.theContent|safe }}
+                    </div>
+                </div>
+                <div class="fl">
+                    <h3 class="font-22">高校动态</h3>
+                    <a href="/current" class="list-more color-a">更多>></a>
+                    <ul>
+                        <li><a href="#">跳转到详情页。。。</a></li>
                     </ul>
-                    {% endfor %}
+                </div>
+                <div class="fl">
+                    <h3 class="font-22">高校秘密</h3>
+                    <a href="/bbs" class="list-more color-a">更多>></a>
+                    <ul>
+                        <li><a href="#">跳转到详情页。。。</a></li>
+                    </ul>
                 </div>
                 <div class="clearf"></div>
+            {% endblock%}
             </div>
 
             <div class="art-aside fr font-14">
@@ -102,9 +104,7 @@
                         <source src="/static/upload/{{ videoFiles.OGG }}" type="video/ogg" />
                         <source src="/static/upload/{{ videoFiles.MP4 }}" type="video/mp4" />
                         <source src="/static/upload/{{ videoFiles.WEBM }}" type="video/webm" />
-                        <object data="/static/upload/{{ videoFiles.MP4 }}" width="310">
-                            <embed width="310" src="/static/upload/{{ videoFiles.SWF }}" />
-                        </object>
+                        使用更高版本浏览器查看视频
                     </video>
                 </div>
                 <div class="aside-addition">
@@ -137,7 +137,7 @@
                 </div>
             </div>
             <div class="clearf"></div>
-        </article>
+        </div>
         <footer>
             <ul class="foot-about font-12 color-c">
                 <span>© 2017 <a href="http://{{ staticInfo.theLink }}">{{ staticInfo.theLink }}</a></span>
@@ -146,7 +146,9 @@
             </ul>
         </footer>
         <script src="/static/js/jquery-3.1.1.min.js"></script>
+        {% block js %}
         <script src="/static/js/img-rolling.js"></script>
         <script src="/static/js/central/index.js"></script>
+        {% endblock %}
     </body>
 </html>

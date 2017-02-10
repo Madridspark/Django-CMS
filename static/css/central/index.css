@@ -15,6 +15,19 @@ header h2
     background-repeat: no-repeat;
 }
 
+h1
+{
+    font-size: 20px;
+    margin: 1em 0;
+    text-align: center;
+}
+
+article
+{
+    padding: 3em 3em;
+    box-sizing: border-box;
+}
+
 .nav-fixed
 {
     height: 50px;
@@ -42,15 +55,19 @@ header h2
     cursor: pointer;
 }
 
-.hero
+body>div:first-of-type
 {
-    position: relative;
     margin-top: 64px;
-    height: 500px;
-    line-height: 500px;
-    background-color: #777;
-    font-size: 10em;
-    text-align: center;
+}
+
+.hero-img
+{
+    font-size: 50px;
+}
+
+.rolling-btn
+{
+    margin-top: 215px;
 }
 
 .art-disp
@@ -59,7 +76,7 @@ header h2
     margin-bottom: 30px;
 }
 
-.arts-list
+div.art-disp>div
 {
     width: 780px;
     margin-top: 3em;
@@ -68,26 +85,32 @@ header h2
     position: relative;
 }
 
-.arts-list-last
+div.art-disp>div:nth-child(1), div.art-disp>div:nth-child(2)
+{
+    width: 380px;
+    margin: 3em 5px 0 5px;
+}
+
+div.art-disp>div:nth-last-child(1), div.art-disp>div:nth-last-child(2)
 {
     border: none;
 }
 
-.arts-list h3
+.art-disp>div h3
 {
     margin-left: 1em;
     margin-bottom: 1em;
     color: #000;
 }
 
-.arts-list li
+.art-disp>div li
 {
     position: relative;
     padding: 0.5em 1em;
     background: url(/static/img/idx-li.png) 0 16px no-repeat;
 }
 
-.arts-list a:hover
+.art-disp>div a:hover
 {
     text-decoration: underline;
 }
@@ -105,37 +128,6 @@ header h2
     line-height: 2em;
     margin: 0.5em 0;
     text-indent: 2em;
-}
-
-.list-teammates
-{
-    padding: 1em 0 1em 50px;
-    vertical-align: top;
-}
-
-.list-teammates li
-{
-    display: block;
-    text-align: center;
-    width: 15em;
-    padding: 0 1em;
-    background: none;
-}
-
-.list-teammates li p
-{
-    text-indent: 0;
-    margin: 1em 0;
-}
-
-.list-teammates li h4
-{
-    margin: 1em 0;
-}
-
-.list-teammates img
-{
-    border-radius: 50%;
 }
 
 .art-aside
