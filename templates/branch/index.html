@@ -9,68 +9,39 @@
             <div id="hot-img" class="img-rolling-curr">
                 <div class="rollingl rolling-btn absl"></div>
                 <ul>
-                    <li><a style="background-image:url(/static/upload/central/hero-image-files/test1.jpg);" href=""></a></li>
-                    <li><a style="background-image:url(/static/upload/central/hero-image-files/test1.jpg);" href=""></a></li>
-                    <li><a style="background-image:url(/static/upload/central/hero-image-files/test1.jpg);" href=""></a></li>
-                    <li><a style="background-image:url(/static/upload/central/hero-image-files/test1.jpg);" href=""></a></li>
+                    {% for article in hot.article_set.all|slice:":8" %}
+                        <li>
+                            <a style="background-image:url(/static/upload/{{ article.titleImage}});" href="article/{{ article.id }}"></a>
+                        </li>
+                    {% endfor %}
                 </ul>
                 <div class="rollingr rolling-btn absr"></div>
             </div>
         </div>
         <div class="hot-text-wrap font-30 fl">
-            <h3><a href="">热门信息</a></h3>
+            <h3><a href="column/{{ hot.id }}">热门信息</a></h3>
             <ul id="hot-text" class="font-16">
-                <li>
-                    <a href="">
-                        <h4>热点标题</h4>
-                        <p>热点内容</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <h4>热点标题</h4>
-                        <p>热点内容热点内容热点内容热点内容热点内容热点内容热点内容热点内容热点内容热点内容热点内容热点内容热点内容</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <h4>热点标题</h4>
-                        <p>热点内容</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <h4>热点标题</h4>
-                        <p>热点内容</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <h4>热点标题</h4>
-                        <p>热点内容</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <h4>热点标题</h4>
-                        <p>热点内容</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <h4>热点标题</h4>
-                        <p>热点内容</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <h4>热点标题</h4>
-                        <p>热点内容</p>
-                    </a>
-                </li>
+                {% for article in hot.article_set.all|slice:":8" %}
+                    <li>
+                        <a href="article/{{ article.id }}">
+                            <h4>{{ article.title }}</h4>
+                            <p>{{ article.content }}</p>
+                        </a>
+                    </li>
+                {% endfor %}
             </ul>
         </div>
-        <div class="clearf"></div>        
+        <form class="search fr">
+            <input type="submit" class="search-submit fr font-18 iconfont" value="&#xE604;"/>
+            <input type="search" placeholder="站内检索" class="search-input fr font-16 color-7" />
+        </form>
+        <a href="" class="media-button font-28 fr">
+            <span>你我共享</span>
+        </a>
+        <a href="" class="media-button font-28 fr">
+            <span>实用小助手</span>
+        </a>
+        <div class="clearf"></div>
     </div>
 
     <div class="columns-wrap">
@@ -81,14 +52,11 @@
                 <a href="column/{{ col.id }}" class="fr color-a">更多>></a>
             </h3>
             <ul class="font-14 color-8">
-                <li><a href="">测试文章标题。。。。</a></li>
-                <li><a href="">测试文章标题。。。。</a></li>
-                <li><a href="">测试文章标题。。。。</a></li>
-                <li><a href="">测试文章标题。。。。</a></li>
-                <li><a href="">测试文章标题。。。。</a></li>
-                <li><a href="">测试文章标题。。。。</a></li>
-                <li><a href="">测试文章标题。。。。</a></li>
-                <li><a href="">测试文章标题。。。。</a></li>
+                {% for article in col.article_set.all|slice:":8" %}
+                    <li>
+                        <a href="article/{{ article.id }}">{{ article.title }}</a>
+                    </li>
+                {% endfor %}
             </ul>
         </div>
         {% endfor %}
@@ -100,84 +68,13 @@
             友情链接
         </h3>
         <ul>
-            <li><a href=""><img ></a></li>
+            {% for link in friendly_links %}
+                <li><a href="{{ link.link }}"><img alt="{{ link.title }}" src="/static/upload/{{ link.image }}" ></a></li>
+            {% endfor %}
         </ul>
         <div class="clearf"></div>        
     </div>
-
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    <div></div>
 {% endblock %}
 
 {% block js %}

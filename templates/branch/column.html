@@ -1,0 +1,23 @@
+{% extends 'branch/base.html' %}
+{% block content %}
+    <ul>
+    {% for article in dataList %}
+        <li>
+            <a href="/branch/article/{{ article.id }}">{{ article.title }}</a>
+        </li>
+    {% endfor %}
+    </ul>
+    <ul>
+        {% for i in pagesCount %}
+            {% if i == page %}
+            <li style="font-weight: bold;">
+                <a>{{ i }}</a>
+            </li>
+            {% else %}
+            <li>
+                <a href="/branch/column/{{ columnId }}/{{ i }}">{{ i }}</a>
+            </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+{% endblock %}

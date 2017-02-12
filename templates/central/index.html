@@ -25,15 +25,25 @@
                         <li><a href="/about">关于本站</a></li>
                     </ul>
                     <div class="font-14 nav-aside nav-content fl">
-                        <a href="#">登录</a>
-                        <span>|</span>
-                        <a href="#">注册</a>
+                        {% if user.is_authenticated %}
+                            欢迎, <a href="/branch">{{ user.username }}</a>
+                            <span>|</span>
+                            <a href="/logout">注销</a>
+                        {% else %}
+                            <a href="/login">登录</a>
+                            <span>|</span>
+                            <a href="/signup">注册</a>
+                        {% endif %}
                     </div>
                 </nav>
             </div>
         </header>
+        <div></div>
+        <div class="fr">
+            去了解我的大学
+        </div>
         {% block hero %}
-        <div class="color-3 hero-img img-rolling">
+        <div class="color-3 wrap hero-img img-rolling">
             Loading...
             <div id="hero" class="img-rolling-curr">
                 <div class="rollingl rolling-btn absl"></div>
@@ -140,7 +150,7 @@
         </div>
         <footer>
             <ul class="foot-about font-12 color-c">
-                <span>© 2017 <a href="http://{{ staticInfo.theLink }}">{{ staticInfo.theLink }}</a></span>
+                <span>Copyright &copy; 2017 <a href="http://{{ staticInfo.theLink }}">{{ staticInfo.theName }}</a> | <a class="color-7" href="/admin">后台登陆入口</a></p></span>
                 <li><a href="#">提建议、求助，请联系我们</a></li>
                 <li><a href="#">加入我们</a></li>
             </ul>

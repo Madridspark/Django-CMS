@@ -10,6 +10,7 @@
 .img-rolling-curr ul li a
 {
     background-position: center center;
+    background-size: 100% auto;
 }
 
 .img-rolling-curr, .img-rolling-curr ul, .img-rolling-curr li, .img-rolling-curr a

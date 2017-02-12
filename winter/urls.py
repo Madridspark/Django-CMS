@@ -17,13 +17,21 @@ from django.conf.urls import url
 from django.contrib import admin
 from central import views as centralViews
 from branch import views as branchViews
+from django.contrib.auth.views import login, logout
 
 urlpatterns = [
     url(r'^$', centralViews.index),
     url(r'^about/', centralViews.about),
     url(r'^team/', centralViews.team),
     url(r'^branch/$', branchViews.index),
-
+    url(r'^branch/column/(\d+)$', branchViews.column),
+    url(r'^branch/column/(\d+)/(\d+)$', branchViews.columnPage),
+    url(r'^branch/article/(\d+)$', branchViews.article),
+    url(r'^login$', centralViews.login),
+    url(r'^login/commit$', centralViews.loginCommit),
+    url(r'^logout$', centralViews.logout),
+    url(r'^signup$', centralViews.signup),
+    url(r'^signup/commit$', centralViews.signupCommit),
     # url(r'^column/(?P<column_link>[^/]+)/$', article_views.column_detail, name='column'),
     # url(r'^news/(?P<pk>\d+)/(?P<article_link>[^/]+)/$', article_views.article_detail, name='article'),
 

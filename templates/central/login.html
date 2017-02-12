@@ -1,0 +1,19 @@
+{% extends 'central/index.html' %}
+
+{% block title %}用户登录{% endblock %}
+{% block css %}{% endblock %}
+{% block hero %}{% endblock %}
+
+{% block content %}
+    <form method="POST" action="/login/commit">
+        {% csrf_token %}
+        <input name="name" type="text">
+        <input name="password" type="password">
+        <input type="submit">
+    </form>
+    {% if not isLoginSuccess %}
+        <p style="color: #ee3b3b">用户名或密码错误</p>
+    {% endif %}
+{% endblock %}
+
+{% block js %}{% endblock %}

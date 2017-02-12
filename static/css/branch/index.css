@@ -21,27 +21,28 @@
     height: 10em;
     overflow: hidden;
     box-shadow: 0 3px 5px #ccc;
+    transition: all 0.2s;
 }
 
 .hot-text-wrap h3
 {
     font-size: 24px;
     text-align: right;
-    border-top: 3px solid #ee3b3b;
-    border-right: 1em solid #ee3b3b;
+    border-top: 3px solid #08397e;
+    border-right: 1em solid #08397e;
 }
 
 .hot-text-wrap h3 a
 {
     padding-left: 1em;
     color: white;
-    background-color: #ee3b3b
+    background-color: #08397e
 }
 
 .hot-text-wrap h3 a::after
 {
     content: ">>";
-    color: #ee3b3b;
+    color: #08397e;
     transition: color 0.2s;
 }
 
@@ -73,7 +74,7 @@
     height: 5px;
     border-radius: 50% 50%;
     content: "";
-    background-color: #ee3b3b;
+    background-color: #08397e;
 }
 
 .hot-text-wrap ul li a
@@ -87,7 +88,7 @@
 
 .hot-text-wrap ul li.hot-current a
 {
-    border-color: #ee3b3b;
+    border-color: #08397e;
 }
 
 .hot-text-wrap ul li a p
@@ -117,7 +118,86 @@
 
 .hot-text-wrap ul li a:hover *
 {
-    color: #ee3b3b;
+    color: #08397e;
+}
+
+.search
+{
+    display: block;
+    width: 350px;
+    height: 50px;
+    margin: 0 21.5px;
+}
+
+.search-input
+{
+    display: block;
+    width: 298px;
+    height: 50px;
+    padding: 0 10px;
+    border: 1px solid #ddd; 
+    transition: all 0.2s;
+}
+
+.search-input:focus
+{
+    border-color: #08397e;
+    outline: none;
+}
+
+.search-submit
+{
+    display: block;
+    width: 52px;
+    height: 50px;
+    margin-left: -1px;
+    color: #08397e;
+    background-color: transparent;
+    border: 1px solid #ddd;
+    transition: all 0.2s;
+}
+
+.search-submit:hover
+{
+    cursor: pointer;
+    background-color: #08397e;
+    color: #fff;
+}
+
+.search-submit:hover, .search-submit:hover+input
+{
+    border-color: #08397e;
+}
+
+.media-button
+{
+    display: block;
+    position: relative;
+    margin: 30px 21.5px 0 21.5px;
+    width: 350px;
+    line-height: 70px;
+    height: 70px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    transition: all 0.2s;
+}
+
+.media-button span
+{
+    position: absolute;
+    margin: 0;
+    right: 50px;
+    transition: right 0.3s;
+}
+
+.media-button:hover
+{
+    border-left: 20px solid #08397e;
+}
+
+.media-button:hover span
+{
+    right: 150px;
 }
 
 .columns-wrap
@@ -131,17 +211,22 @@
     box-sizing: border-box;
     padding: 1em;
     margin: 3em 21.5px;
-    border-top: 3px solid #ee3b3b;
-    box-shadow: 0 3px 5px #ccc;
-
+    border-top: 3px solid #08397e;
     line-height: 2em;
     height: 365px;
     overflow: hidden;
+    box-shadow: 0 3px 5px #ccc;
+    transition: all 0.2s;
+}
+
+.columns:hover, .hot-text-wrap:hover
+{
+    box-shadow: 3px 5px 10px #aaa;
 }
 
 .columns h3
 {
-    color: #ee3b3b;
+    color: #08397e;
     padding-bottom: 0.5em;
     border-bottom: 1px solid #ccc;
 }
@@ -160,6 +245,7 @@
 .friendly-links
 {
     position: relative;
+    margin-bottom: 50px;
 }
 
 .friendly-links h3
@@ -170,7 +256,7 @@
     padding: 2em;
     width: 2em;
     height: 2em;
-    background-color: #ee3b3b;
+    background-color: #08397e;
 }
 
 .friendly-links h3::after
@@ -184,7 +270,7 @@
     top: 2em;
     box-sizing: border-box;
     border: 1em solid transparent;
-    border-left: 1em solid #ee3b3b;
+    border-left: 1em solid #08397e;
 }
 
 .friendly-links ul
@@ -193,10 +279,11 @@
     z-index: 0;
     left: 6em;
     right: 0;
-    border: 2px solid #ee3b3b;
+    border: 2px solid #08397e;
     padding-left: 2em;
     height: 6em;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .friendly-links ul li
@@ -206,5 +293,5 @@
 
 .friendly-links ul img
 {
-    height: 6em;
+    height: 140px;
 }
