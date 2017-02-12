@@ -133,3 +133,7 @@ STATICFILES_FINDERS = (
 )
 
 MEDIA_ROOT = os.path.join(os.path.join(BASE_DIR, "static"), 'upload')
+
+SESSION_COOKIE_AGE = 60*30
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True

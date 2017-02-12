@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from central.models import StaticInfo
 from models import BranchInfo, FriendlyLink, Column, Article, Post
+from statistic import counter
 
 ONE_PAGE_OF_ARTICLE = 20
 
@@ -13,7 +14,9 @@ baseContext = {
     'columns' : Column.objects.all()[1:]
 }
 
+
 def index(request):
+    counter(request)
     columns = Column.objects.all()[1:]
 
     context = {
@@ -27,6 +30,7 @@ def column(request, columnId):
     return columnPage(request, columnId, 1)
 
 def columnPage(request, columnId, page):
+    counter(request)
     column = Column.objects.filter(id=columnId)[0]
     pagesCount = column.article_set.count() / ONE_PAGE_OF_ARTICLE
     temp = column.article_set.count() % ONE_PAGE_OF_ARTICLE
@@ -54,6 +58,7 @@ def columnPage(request, columnId, page):
 
 
 def article(request, articleId):
+    counter(request)
     context = {
         'article' : Article.objects.filter(id=articleId)[0],
     }

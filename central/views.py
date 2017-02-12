@@ -5,6 +5,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from models import StaticInfo, StaticAbout, HeroImages, Page1Video
 from django.contrib import auth
 from django.contrib.auth.models import User
+from statistic import counter
 
 indexContext = {
     'staticInfo' : StaticInfo.objects.all()[0],
@@ -13,6 +14,7 @@ indexContext = {
 }
 
 def index(request):
+    counter(request)
     context = {
         'intro' : StaticAbout.objects.filter(theTitle='网站简介')[0],
         'team' : StaticAbout.objects.filter(theTitle='管理团队')[0],
@@ -21,6 +23,7 @@ def index(request):
     return render(request, 'central/index.html', dict(indexContext, **context))
 
 def team(request):
+    counter(request)
     staticTeammates = StaticAbout.objects.filter(theTitle='管理团队')[0]
 
     context = {
@@ -30,6 +33,7 @@ def team(request):
     return render(request, 'central/team.html', dict(indexContext, **context))
 
 def about(request):
+    counter(request)
     staticTeammates = StaticAbout.objects.filter(theTitle='网站简介')[0]
 
     context = {
@@ -39,6 +43,7 @@ def about(request):
     return render(request, 'central/about.html', dict(indexContext, **context))
 
 def login(request):
+    counter(request)
     context = {
         'isLoginSuccess' : True
     }
@@ -49,6 +54,7 @@ def logout(request):
     return HttpResponseRedirect('/')
 
 def signup(request):
+    counter(request)
     context = {
         'isSignupSuccess' : True
     }
