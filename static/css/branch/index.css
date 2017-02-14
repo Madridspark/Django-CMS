@@ -219,7 +219,7 @@
     transition: all 0.2s;
 }
 
-.columns:hover, .hot-text-wrap:hover
+.columns:hover, .hot-text-wrap:hover, .bbs:hover
 {
     box-shadow: 3px 5px 10px #aaa;
 }
@@ -240,6 +240,24 @@
 .columns ul li a:hover
 {
     text-decoration: underline;
+}
+
+.bbs
+{
+    height: 400px;
+    position: relative;
+    width: auto;
+    margin: 3em 21.5px;
+    border-bottom: 3px solid #08397e;
+}
+
+.bbs .post
+{
+    position: absolute;
+    padding: 0.3em 1em;
+    right: 0;
+    bottom: 0;
+    background-color: #08397e;
 }
 
 .friendly-links

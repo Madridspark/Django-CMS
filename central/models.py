@@ -4,6 +4,7 @@ from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
+from DjangoUeditor.models import UEditorField
 
 
 @python_2_unicode_compatible
@@ -30,7 +31,7 @@ class StaticInfo(models.Model):
 @python_2_unicode_compatible
 class StaticAbout(models.Model):
     theTitle = models.CharField('标题', max_length=256, unique=True)
-    theContent = models.TextField('内容', default='')
+    theContent = UEditorField('内容', height=300, width=1000, default=u'', blank=True, imagePath="central/content-images/", toolbars='besttome', filePath='central/content-files/')
     theImage = models.FileField('封面', upload_to='./central/about-image-files/')
 
     def __str__(self):

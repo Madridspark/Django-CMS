@@ -1,40 +1,52 @@
 {% extends 'central/index.html' %}
 
 {% block title %}用户注册{% endblock %}
-{% block css %}{% endblock %}
+{% block cssBefore %}
+<link href="/static/css/bootstrap.min.css" rel="stylesheet">
+{% endblock %}
+{% block cssBehind %}{% endblock %}
 {% block hero %}{% endblock %}
 
 {% block content %}
-    <form method="POST" action="/signup/commit">
-        {% csrf_token %}
-        <table>
-            <tr>
-                <td>用户名:</td>
-                <td>
-                    <input name="name" type="text" value="{{ username }}">
+    <article style="margin-top: 100px;">
+        <form class="form-horizontal" method="POST" action="/signup/commit">
+            {% csrf_token %}
+            <div class="form-group form-group-lg">
+                <label for="username" class="col-md-2 control-label">用户名:</label>
+                <div class="col-md-10">
+                    <input id="username" name="name" value="{{ username }}" type="text" class="form-control" placeholder="用户名">
+                </div>
+            </div>
+            <div class="form-group form-group-lg">
+                <label for="email" class="col-md-2 control-label">邮箱:</label>
+                <div class="col-md-10">
+                    <input id="email" name="email" value="{{ email }}" type="email" class="form-control" placeholder="邮箱">
+                </div>
+            </div>
+            <div class="form-group form-group-lg">
+                <label for="password" class="col-md-2 control-label">密码:</label>
+                <div class="col-md-10">
+                    <input id="password" name="password" type="password" class="form-control" placeholder="请输入密码">
+                </div>
+            </div>
+            <div class="form-group form-group-lg">
+                <label for="passwordAgain" class="col-md-2 control-label">再次输入密码:</label>
+                <div class="col-md-10">
+                    <input id="passwordAgain" type="password" class="form-control" placeholder="再次输入密码">
+                </div>
+            </div>
+            <div class="form-group form-group-lg">
+                <div class="col-md-offset-2 col-md-10">
+                    <button type="submit" class="btn btn-primary">提交</button>
                     {% if not isSignupSuccess %}
-                        用户名已存在
+                        <span style="color: #ee3b3b">用户名已存在</span>
                     {% endif %}
-                </td>
-            </tr>
-            <tr>
-                <td>邮箱:</td>
-                <td><input name="email" type="email" value="{{ email }}"></td>
-            </tr>
-            <tr>
-                <td>密码:</td>
-                <td><input name="password" type="password"></td>
-            </tr>
-            <tr>
-                <td>再次输入密码:</td>
-                <td><input type="password"></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><input type="submit"></td>
-            </tr>
-        </table>
-    </form>
+                </div>
+            </div>
+        </form>
+    </article>
 {% endblock %}
 
-{% block js %}{% endblock %}
+{% block js %}
+<script src="/static/js/bootstrap.min.js"></script>
+{% endblock %}

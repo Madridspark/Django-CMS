@@ -4,6 +4,7 @@ from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
+from DjangoUeditor.models import UEditorField
 
 
 @python_2_unicode_compatible
@@ -52,7 +53,7 @@ class Article(models.Model):
     titleImage = models.FileField('主题图片', blank=True, null=True, upload_to='./branch/article-title-images/')
 
     author = models.ForeignKey('auth.User', blank=True, null=True, verbose_name='作者')
-    content = models.TextField('内容', default='', blank=True)
+    content = UEditorField('内容', height=300, width=1000, default=u'', blank=True, imagePath="branch/content-images/", toolbars='besttome', filePath='branch/content-files/')
 
     pub_time = models.DateTimeField('发布时间', auto_now_add=True, editable=True)
     update_time = models.DateTimeField('更新时间', auto_now=True, null=True)
@@ -83,8 +84,8 @@ class Post(models.Model):
 
 
 @python_2_unicode_compatible
-class PostReplie(models.Model):
-    to = models.OneToOneField(Post, verbose_name='回复')
+class PostReply(models.Model):
+    to = models.ForeignKey(Post, verbose_name='回复')
     author = models.ForeignKey('auth.User', verbose_name='作者')
     content = models.TextField('内容', default='', blank=True)
     pub_time = models.DateTimeField('发布时间', auto_now_add=True, editable=True)

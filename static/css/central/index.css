@@ -55,6 +55,26 @@ article
     cursor: pointer;
 }
 
+a.goto
+{
+    display: block;
+    margin-right: 50px;
+    width: 90px;
+    height: 400px;
+    background: url(/static/img/goto.png) no-repeat;
+    background-size: 100% 100%;
+    color: #39C;
+}
+
+a.goto>div
+{
+    text-align: center;
+    font-size: 18px;
+    width: 30px;
+    margin-top: 190px;
+    margin-left: 30px;
+}
+
 body>div:first-of-type
 {
     margin-top: 64px;

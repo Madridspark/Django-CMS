@@ -44,6 +44,8 @@ def about(request):
 
 def login(request):
     counter(request)
+    if request.user.is_authenticated():
+        return HttpResponseRedirect("/branch")
     context = {
         'isLoginSuccess' : True
     }
@@ -55,15 +57,16 @@ def logout(request):
 
 def signup(request):
     counter(request)
+    if request.user.is_authenticated():
+        return HttpResponseRedirect("/branch")
     context = {
         'isSignupSuccess' : True
     }
     return render(request, 'central/signup.html', dict(indexContext, **context))
 
 def loginCommit(request):
-
     if request.user.is_authenticated():
-        return HttpResponseRedirect("/")
+        return HttpResponseRedirect("/branch")
 
     if request.method == 'POST':
         username = request.POST.get('name','')
@@ -73,7 +76,7 @@ def loginCommit(request):
         
         if user and user.is_active:
             auth.login(request, user)
-            return HttpResponseRedirect("/")
+            return HttpResponseRedirect("/branch")
 
     context = {
         'isLoginSuccess' : False
@@ -83,7 +86,7 @@ def loginCommit(request):
 
 def signupCommit(request):
     if request.user.is_authenticated():
-        return HttpResponseRedirect("/")
+        return HttpResponseRedirect("/branch")
     try:
         if request.method=='POST':
             username = request.POST.get('name','')
@@ -118,7 +121,7 @@ def signupCommit(request):
             newUser = auth.authenticate(username = username,password = password)
             if newUser:
                 auth.login(request, newUser)#g*******************
-                return HttpResponseRedirect("/")
+                return HttpResponseRedirect("/branch")
     except Exception,e:
         return render(request, 'central/signup.html', dict(indexContext, **{}))
     

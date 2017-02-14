@@ -1,0 +1,30 @@
+{% extends 'branch/base.html' %}
+{% block content %}
+    <ul>
+    {% for article in dataList %}
+        <li>
+            <a href="/branch/bbs/post/{{ article.id }}">{{ article.title }}</a>
+            <p>{{ article.content }}</p>
+        </li>
+    {% endfor %}
+    </ul>
+    <ul>
+        {% for i in pagesCount %}
+            {% if i == page %}
+            <li style="font-weight: bold;">
+                <a>{{ i }}</a>
+            </li>
+            {% else %}
+            <li>
+                <a href="/branch/column/{{ columnId }}/{{ i }}">{{ i }}</a>
+            </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    <form action="/branch/bbs/post" method="POST">
+        {% csrf_token %}
+        <input type="text" name="title">
+        <textarea name="content"></textarea>
+        <input type="submit">
+    </form>
+{% endblock %}

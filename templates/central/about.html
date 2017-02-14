@@ -1,7 +1,8 @@
 {% extends 'central/index.html' %}
 
 {% block title %}网站简介{% endblock %}
-{% block css %}{% endblock %}
+{% block cssBefore %}{% endblock %}
+{% block cssBehind %}{% endblock %}
 {% block hero %}{% endblock %}
 
 {% block content %}
@@ -14,4 +15,6 @@
 </article>
 {% endblock %}
 
-{% block js %}{% endblock %}
+{% block js %}
+<script src="/static/js/upload-url.js"></script>
+{% endblock %}
