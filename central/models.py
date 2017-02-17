@@ -30,6 +30,7 @@ class StaticInfo(models.Model):
 
 @python_2_unicode_compatible
 class StaticAbout(models.Model):
+    theName = models.CharField('链接(不要修改)', max_length=256, unique=True)
     theTitle = models.CharField('标题', max_length=256, unique=True)
     theContent = UEditorField('内容', height=300, width=1000, default=u'', blank=True, imagePath="central/content-images/", toolbars='besttome', filePath='central/content-files/')
     theImage = models.FileField('封面', upload_to='./central/about-image-files/')
@@ -69,3 +70,17 @@ class Page1Video(models.Model):
     class Meta:
         verbose_name = '宣传视频'
         verbose_name_plural = '宣传视频'
+
+
+@python_2_unicode_compatible
+class BranchList(models.Model):
+    name = models.CharField('名称', max_length=256, unique=True)
+    link = models.CharField('分部网址', max_length=256)
+    logo = models.FileField('校徽', upload_to='./central/branchs-logo-image-files/')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = '高校列表'
+        verbose_name_plural = '高校列表'

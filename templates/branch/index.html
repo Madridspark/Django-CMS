@@ -35,10 +35,10 @@
             <input type="submit" class="search-submit fr font-18 iconfont" value="&#xE604;"/>
             <input type="search" placeholder="站内检索" class="search-input fr font-16 color-7" />
         </form>
-        <a href="" class="media-button font-28 fr">
-            <span>你我共享</span>
+        <a href="column/{{ col_share.id }}" class="media-button font-28 fr">
+            <span>{{ col_share.name }}</span>
         </a>
-        <a href="" class="media-button font-28 fr">
+        <a href="tools" class="media-button font-28 fr">
             <span>实用小助手</span>
         </a>
         <div class="clearf"></div>
@@ -66,13 +66,16 @@
                 畅所欲言
             </h3>
             <ul class="font-14 color-8">
-                <li>
-                    <a href="bbs/post/">test</a>
-                    <time class="fr">2016/12/10</time>
-                </li>
+                {% for post in posts %}
+                    <li>
+                        <a href="bbs/post/">{{ post.title }}</a>
+                        <time class="fr">{{ post.pub_time }}</time>
+                    </li>
+                {% endfor %}
+                
             </ul>
             <div class="post font-20 fr">
-                <a href="bbs" class="color-f">发帖>></a>
+                <a href="bbs#posting" class="color-f">发帖>></a>
             </div>
         </div>
     </div>
@@ -88,6 +91,12 @@
         </ul>
         <div class="clearf"></div>        
     </div>
+    {% for ad in ads %}
+        <div>
+            <a href="/static/upload/{{ ad.link }}"><img width="1180" height="150" alt="{{ ad.title }}" src="/static/upload/{{ ad.image }}" ></a>
+        </div>
+    {% endfor %}
+        
     <div></div>
 {% endblock %}
 

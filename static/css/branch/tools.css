@@ -1,0 +1,35 @@
+article
+{
+    width: 800px;
+    margin: 100px auto;
+    text-align: center;
+}
+
+article a
+{
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    font-size: 20px;
+    width: 150px;
+    margin: 10px 20px;
+}
+
+article a:hover
+{
+    text-decoration: none;
+}
+
+article a div
+{
+    width: 150px;
+    height: 150px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+article p
+{
+    width: 100%;
+    overflow-wrap: break-word;
+}

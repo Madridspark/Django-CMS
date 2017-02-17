@@ -173,13 +173,15 @@
 {
     display: block;
     position: relative;
-    margin: 30px 21.5px 0 21.5px;
+    margin: 25px 21.5px 0 21.5px;
     width: 350px;
-    line-height: 70px;
-    height: 70px;
+    line-height: 100px;
+    height: 100px;
     border: 1px solid #ddd;
+    color: #08397e;
     box-sizing: border-box;
     transition: all 0.2s;
+    background-image: url(/static/img/btn-bg.jpg);
 }
 
 .media-button span
@@ -234,7 +236,7 @@
 .columns ul li
 {
     padding: 0.5em 1em;
-    background: url(/static/img/branch-li.png) 0 16px no-repeat;
+    background: url(/static/img/branch-li.png) 0 18px no-repeat;
 }
 
 .columns ul li a:hover
@@ -263,7 +265,7 @@
 .friendly-links
 {
     position: relative;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 .friendly-links h3
@@ -312,4 +314,9 @@
 .friendly-links ul img
 {
     height: 140px;
+}
+
+.content-wrap>div:last-child
+{
+    margin-bottom: 50px;
 }

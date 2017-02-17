@@ -32,6 +32,35 @@ class FriendlyLink(models.Model):
         verbose_name = '友情链接'
         verbose_name_plural = '友情链接'
 
+
+@python_2_unicode_compatible
+class Tools(models.Model):
+    title = models.CharField('标题', max_length=256)
+    link = models.TextField('链接', default='')
+    image = models.FileField('图片', upload_to='./branch/tools-image-files/')
+    
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = '小助手'
+        verbose_name_plural = '实用小助手'
+
+
+@python_2_unicode_compatible
+class Advertisements(models.Model):
+    title = models.CharField('标题', max_length=256)
+    link = models.FileField('介绍文件', upload_to='./branch/ads-files/text/')
+    image = models.FileField('图片', upload_to='./branch/ads-files/image/')
+    
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = '广告'
+        verbose_name_plural = '广告列表'
+
+
 @python_2_unicode_compatible
 class Column(models.Model):
     name = models.CharField('栏目名称', max_length=256)
@@ -69,7 +98,7 @@ class Article(models.Model):
 
 @python_2_unicode_compatible
 class Post(models.Model):
-    title = models.CharField('标题', max_length=256)
+    title = models.CharField('标题', default=' ', max_length=256)
     author = models.ForeignKey('auth.User', verbose_name='作者')
     content = models.TextField('内容', default='', blank=True)
     pub_time = models.DateTimeField('发布时间', auto_now_add=True, editable=True)

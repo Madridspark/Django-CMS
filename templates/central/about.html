@@ -1,13 +1,13 @@
 {% extends 'central/index.html' %}
 
-{% block title %}网站简介{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 {% block cssBefore %}{% endblock %}
 {% block cssBehind %}{% endblock %}
 {% block hero %}{% endblock %}
 
 {% block content %}
 <article class="list-about">
-    <h1>网站简介</h1>
+    <h1>{{ title }}</h1>
     <div class="text-center">
         <img src="/static/upload/{{ image }}">
     </div>

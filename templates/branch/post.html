@@ -1,31 +1,48 @@
 {% extends 'branch/base.html' %}
-{% block content %}
-    <h1>
-        {{ post.title }}
-    </h1>
-    <p>
-        <time>{{ post.pub_time|date:"Y/m/d G:i"}}</time>
-        <span>{{ post.author }}</span>
-    </p>
-    <article>
-        {{ post.content }}
-    </article>
+{% block title %}论坛 - {{ post.title }}{% endblock %}
 
-    <ul>
-    {% for reply in post.postreply_set.all %}
-        <li>
-            <h4>
-                <time>{{ reply.pub_time|date:"Y/m/d G:i"}}</time>
-                <span>{{ reply.author }}</span>
-            </h4>
-            <p>{{ reply.content }}</p>
-        </li>
-    {% endfor %}
-    </ul>
-
-    <form action="/branch/bbs/post/reply/{{ post.id }}" method="POST">
-        {% csrf_token %}
-        <textarea name="content"></textarea>
-        <input type="submit">
-    </form>
+{% block css %}
+<link rel="stylesheet" type="text/css" href="/static/css/branch/article.css">
+<link rel="stylesheet" type="text/css" href="/static/css/branch/post.css">
 {% endblock %}
+
+
+{% block content %}
+    <article>
+        <a class="btn-post-back" href="/branch/bbs{{ backHref }}">《 返回&nbsp;</a>
+        <h1 class="article-title">
+            {{ post.title }}
+            <a href="#reply" class="font-16 color-9 fr">回复</a>
+        </h1>
+        <p class="font-14 color-9">
+            <span>楼主 : {{ post.author }}</span>
+            <time class="fr">{{ post.pub_time|date:"Y/m/d G:i"}}</time>
+        </p>
+        <div class="post-content">
+            {{ post.content }}
+        </div>
+        
+        <ul class="post-reply-list">
+            <h3>评论</h3>
+            {% for reply in post.postreply_set.all %}
+            <li>
+                <h4 class="font-14 color-9">
+                    <span>{{ reply.author }}</span>
+                    <time class="fr">{{ reply.pub_time|date:"Y/m/d G:i"}}</time>
+                </h4>
+                <p>{{ reply.content }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <a name="reply" id="reply"></a>
+
+        <form class="post-form" action="/branch/bbs/post/reply/{{ post.id }}" method="POST">
+            {% csrf_token %}
+            <textarea rows="3" class="post-content" name="content"></textarea>
+            <input class="post-submit" type="submit">
+        </form>
+    </article>
+{% endblock %}
+
+{% block extend%}{% endblock %}

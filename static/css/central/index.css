@@ -150,6 +150,32 @@ div.art-disp>div:nth-last-child(1), div.art-disp>div:nth-last-child(2)
     text-indent: 2em;
 }
 
+.list-branchs a
+{
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    font-size: 20px;
+    width: 150px;
+    height: 200px;
+    margin: 10px 20px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.list-branchs a:hover
+{
+    text-decoration: none;
+}
+
+.list-branchs a h4
+{
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+}
+
 .art-aside
 {
     width: 310px;

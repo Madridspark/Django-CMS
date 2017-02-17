@@ -1,23 +1,35 @@
 {% extends 'branch/base.html' %}
-{% block content %}
-    <ul>
-    {% for article in dataList %}
-        <li>
-            <a href="/branch/article/{{ article.id }}">{{ article.title }}</a>
-        </li>
-    {% endfor %}
-    </ul>
-    <ul>
-        {% for i in pagesCount %}
-            {% if i == page %}
-            <li style="font-weight: bold;">
-                <a>{{ i }}</a>
-            </li>
-            {% else %}
-            <li>
-                <a href="/branch/column/{{ columnId }}/{{ i }}">{{ i }}</a>
-            </li>
-            {% endif %}
-        {% endfor %}
-    </ul>
+{% block title %}{{ columnName }}{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="/static/css/branch/list.css">
 {% endblock %}
+
+{% block content %}
+    <article>
+        <h3>{{ columnName }}</h3>
+        <ul class="article-list">
+        {% for article in dataList %}
+            <li>
+                <a href="/branch/article/{{ article.id }}">{{ article.title }}</a>
+                <time class="fr color-a">[{{ article.pub_time }}]</time>
+            </li>
+        {% endfor %}
+        </ul>
+        <ul class="page-list">
+            {% for i in pagesCount %}
+                {% if i == page %}
+                <li class="btn-page-current" style="font-weight: bold;">
+                    <a>{{ i }}</a>
+                </li>
+                {% else %}
+                <li>
+                    <a href="/branch/column/{{ columnId }}/{{ i }}">{{ i }}</a>
+                </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </article>
+{% endblock %}
+
+{% block extend%}{% endblock %}

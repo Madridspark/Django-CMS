@@ -1,0 +1,67 @@
+span
+{
+    margin: 0;
+}
+
+article
+{
+    margin: 50px 0;
+}
+
+article a.btn-post-back
+{
+    font-size: 16px;
+    margin: 1em 0;
+    color: #08397e;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s;
+}
+
+article a.btn-post-back:hover
+{
+    border-bottom: 1px solid #08397e;
+}
+
+article h1.article-title
+{
+    font-size: 26px;
+    line-height: 2em;
+    margin: 1em 0;
+    border-bottom: 2px solid #08397e;
+}
+
+article h1.article-title+div
+{
+    text-align: center;
+}
+
+article .article-content
+{
+    padding: 20px 150px 100px 150px;
+    font-size: 16px;
+}
+
+article .post-content
+{
+    font-size: 18px;
+    padding: 20px 100px 20px 0;
+}
+
+article .post-reply-list h3
+{
+    font-size: 24px;
+    padding: 0.5em 0;
+    border-bottom: 1px solid #ccc;
+}
+
+article .post-reply-list li
+{
+    font-size: 16px;
+    margin-top: 1em;
+    border-bottom: 1px solid #ccc;    
+}
+
+article .post-reply-list p
+{
+    padding: 1em 100px 1em 0;
+}

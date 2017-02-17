@@ -56,7 +56,6 @@
         </header>
         <div></div>
         {% block hero %}
-        {% if not user.is_authenticated %}
         <a class="goto fr" href="
                             {% if user.is_authenticated %}
                                         /branch
@@ -68,7 +67,6 @@
                 去了解我的大学
             </div>
         </a>
-        {% endif %}
         <div class="color-3 wrap hero-img img-rolling">
             Loading...
             <div id="hero" class="img-rolling-curr">
@@ -86,16 +84,16 @@
             <div class="art-disp fl font-14 color-5">
             {% block content%}
                 <div class="fl">
-                    <h3 class="font-22">网站简介</h3>
-                    <a href="/about" class="list-more color-a">更多>></a>
+                    <h3 class="font-22">{{ intro.theTitle }}</h3>
+                    <a href="/about?art={{ intro.theName }}" class="list-more color-a">更多>></a>
                     <div class="text-center"><img height="160" src="/static/upload/{{ intro.theImage }}"></div>
                     <div class="list-content list-about font-17">
                         {{ intro.theContent|safe }}
                     </div>
                 </div>
                 <div class="fl">
-                    <h3 class="font-22">管理团队</h3>
-                    <a href="/team" class="list-more color-a">更多>></a>
+                    <h3 class="font-22">{{ team.theTitle }}</h3>
+                    <a href="/about?art={{ team.theName }}" class="list-more color-a">更多>></a>
                     <div class="text-center"><img height="160" src="/static/upload/{{ team.theImage }}"></div>
                     <div class="list-content list-about font-17">
                         {{ team.theContent|safe }}
@@ -105,15 +103,21 @@
                     <h3 class="font-22">高校动态</h3>
                     <a href="/current" class="list-more color-a">更多>></a>
                     <ul>
-                        <li><a href="#">跳转到详情页。。。</a></li>
+                        {% for hot in hots %}
+                        <li><a href="/branch/article/{{ hot.id }}">{{ hot.title }}</a></li>
+                        {% endfor %}
                     </ul>
                 </div>
                 <div class="fl">
                     <h3 class="font-22">高校秘密</h3>
                     <a href="/bbs" class="list-more color-a">更多>></a>
-                    <ul>
-                        <li><a href="#">跳转到详情页。。。</a></li>
-                    </ul>
+                    <div class="list-branchs">
+                        {% for branch in branchs %}
+                        <a style="background-image: url(/static/upload/{{ branch.logo }})" href="{{ branch.link }}/bbs">
+                            <h4>{{ branch.name }}</h4> 
+                        </a>
+                        {% endfor %}
+                    </div>
                 </div>
                 <div class="clearf"></div>
             {% endblock%}
@@ -169,7 +173,7 @@
                             <td>{{ staticInfo.thePostcode }}</td>
                         </tr>
                     </table>
-                    <p id="aside-comm-all"><a href="#">各高校负责人联系方式>></a></p>
+                    <p id="aside-comm-all"><a href="/about?art={{ commi.theName }}">各高校负责人联系方式>></a></p>
                 </div>
             </div>
             <div class="clearf"></div>
@@ -177,8 +181,8 @@
         <footer>
             <ul class="foot-about font-12 color-c">
                 <span>Copyright &copy; 2017 <a href="http://{{ staticInfo.theLink }}">{{ staticInfo.theName }}</a> | <a class="color-7" href="/admin">后台登陆入口</a></p></span>
-                <li><a href="#">提建议、求助，请联系我们</a></li>
-                <li><a href="#">加入我们</a></li>
+                <li><a href="/commi/send">提建议、求助，请联系我们</a></li>
+                <li><a href="/commi/join">加入我们</a></li>
             </ul>
         </footer>
         <script src="/static/js/jquery-3.1.1.min.js"></script>

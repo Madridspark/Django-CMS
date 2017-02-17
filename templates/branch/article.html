@@ -1,10 +1,24 @@
 {% extends 'branch/base.html' %}
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="/static/css/branch/article.css">
+<link rel="stylesheet" type="text/css" href="/static/css/branch/post.css">
+{% endblock %}
+
 {% block content %}
-    <h1>
-        {{ article.title }}
-    </h1>
     <article>
-        {{ article.content }}
+        <h1 class="article-title">
+            {{ article.title }}
+        </h1>
+        <div class="font-14 color-a">
+            作者 : {{ article.author}} |
+            发布时间 : {{ article.pub_time}} |
+            更新时间 : {{ article.update_time}}
+        </div>
+        <div class="article-content">
+            {{ article.content|safe }}
+        </div>
     </article>
 
 {% endblock %}
@@ -12,3 +26,5 @@
 {% block js %}
 <script src="/static/js/upload-url.js"></script>
 {% endblock %}
+
+{% block extend%}{% endblock %}

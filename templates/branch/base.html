@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>{% block title %}首页{% endblock %} - {{ branch.name }} - {{ staticInfo.theName }}</title>
+        <title>{{ staticInfo.theName }} - {{ branch.name }} - {% block title %}首页{% endblock %}</title>
         <link rel="stylesheet" type="text/css" href="/static/css/base.css">
         <link rel="stylesheet" type="text/css" href="/static/css/branch/base.css">
         <link rel="stylesheet" type="text/css" href="/static/fonts/branch/iconfont.css">
@@ -11,9 +11,8 @@
     </head>
     <body>
         <header>
-             <!--style="background-image: url({{ branch.hero }});"-->
             <h2 class="font-60 color-0" style="background-image: url(/static/upload/{{ branch.hero }});">
-                <a href="/">{{ staticInfo.theName }}</a><span class="font-20">[ {{ branch.name }} ]</span>
+                <!--{{ staticInfo.theName }}-->
             </h2>
             <nav id="nav-bar" class="wrap color-6">
                 <ul class="color-3 font-15 nav-list">
@@ -21,18 +20,23 @@
                     {% for col in columns %}
                     <li class="dis-inl"><a href="/branch/column/{{ col.id }}">{{ col.name }}</a></li>
                     {% endfor %}
-                    <li class="dis-inl"><a href="/">有话想说</a></li>
+                    <li class="dis-inl"><a href="/branch/bbs">有话想说</a></li>
                 </ul>
             </nav>
         </header>
-        <div class="wrap">
+        {% block extend%}
+        <a class="goto fl" href="/">
+            <img width="150" alt="回主页看看" src="/static/img/goto.jpg">
+        </a>
+        {% endblock %}
+        <div class="content-wrap wrap">
             {% block content%}
             {% endblock%}
         </div>
         <footer>
             <div class="footer-commi">
-                <a href="#">有事联系我们</a>
-                <a href="#">有意加入我们</a>
+                <a href="/commi/send">有事联系我们</a>
+                <a href="/commi/join">有意加入我们</a>
             </div>
             <div class="footer-about font-12">
                 <p>Copyright &copy; 2017 <a href="http://{{ staticInfo.theLink }}">{{ staticInfo.theName }}</a> | <a class="color-7" href="/admin">后台登陆入口</a></p>

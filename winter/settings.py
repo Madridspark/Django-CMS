@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/1.10/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.10/ref/settings/
 """
+# -*- coding: utf-8 -*-
 
 import os
 
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -138,3 +140,12 @@ MEDIA_ROOT = os.path.join(os.path.join(BASE_DIR, "static"), 'upload')
 SESSION_COOKIE_AGE = 60*30
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+
+EMAIL_HOST = 'smtp.163.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = '18700445641@163.com'
+EMAIL_HOST_PASSWORD = 'changandaxue14'
+EMAIL_SUBJECT_PREFIX = u'[17qingxiang]'
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'admin <18700445641@163.com>'

@@ -1,0 +1,52 @@
+article
+{
+    margin: 50px 0;
+}
+
+article h3
+{
+    font-size: 26px;
+    line-height: 2em;
+    margin-bottom: 1em;
+    border-bottom: 2px solid #08397e;
+}
+
+article .article-list
+{
+    font-size: 16px;
+}
+
+article .article-list li h4
+{
+    margin-bottom: 1em;
+}
+
+article .article-list li
+{
+    padding: 0.5em 1em;
+    background: url(/static/img/branch-li.png) 0 18px no-repeat;
+    border-bottom: 1px solid #eee;
+}
+
+article .page-list
+{
+    margin: 1em 0;
+    font-size: 20px;
+    text-align: right;
+    padding-right: 1em;
+}
+
+article .page-list li
+{
+    display: inline-block;
+    width: 1.5em;
+    color: #fff;
+    background-color: #08397e;
+    text-align: center;
+}
+
+article .page-list li.btn-page-current
+{
+    color: #08397e;
+    background-color: transparent;
+}
