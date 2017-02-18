@@ -8,12 +8,13 @@
 
 {% block content %}
     <article>
+        <ul>
         {% for tool in tools %}
-            <a href="{{ tool.link }}">
-                <div style="background-image: url(/static/upload/{{ tool.image }})"></div>
-                <p>{{ tool.title }}</p>
-            </a>
+            <li style="background-image: url(/static/upload/{{ tool.image }})">
+                <a href="{{ tool.link }}">{{ tool.title }}</a>
+            </li>
         {% endfor %}
+        </ul>
     </article>
 {% endblock %}
 

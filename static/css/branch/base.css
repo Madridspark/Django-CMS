@@ -7,6 +7,7 @@ h2
 {
     height: 300px;
     background-color: #eee;
+    background-size: 100% 100%;
     box-sizing: border-box;
     padding-top: 100px;
     padding-left: 450px;
