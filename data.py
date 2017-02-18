@@ -11,6 +11,7 @@ create some records for demo database
  
 from winter.wsgi import *
 from branch.models import Column, Article, FriendlyLink
+from central.models import Current
  
  
 def main():
@@ -27,7 +28,12 @@ def main():
  
             article.column.add(column)
  
- 
+
 if __name__ == '__main__':
-    main()
+    # main()
+    for i in range(11, 101):
+        Current.objects.get_or_create(
+            title='高校动态_{}'.format(i),
+            content='动态详细内容：{}'.format(i)
+        )[0]
     print("Done!")

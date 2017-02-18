@@ -23,6 +23,8 @@ from DjangoUeditor import urls as DjangoUeditor_urls
 urlpatterns = [
     url(r'^$', centralViews.index),
     url(r'^about/', centralViews.about),
+    url(r'^current/$', centralViews.current),
+    url(r'^current/(\d+)$', centralViews.currentDetails),
     url(r'^commi/send', centralViews.sendEmail),
     url(r'^commi/join', centralViews.joinUs),
     url(r'^login$', centralViews.login),

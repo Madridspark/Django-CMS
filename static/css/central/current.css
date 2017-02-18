@@ -1,0 +1,30 @@
+article h1
+{
+    font-size: 20px;
+}
+
+article.current-list li
+{
+    margin: 0.5em 0;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid #bfefff;
+}
+
+article.current-detail div.detail-info
+{
+    text-align: center;
+    padding-bottom: 1em;
+    color: #aaa;
+    border-bottom: 1px solid #ccc;
+}
+
+article.current-detail div.detail
+{
+    font-size: 16px;
+    margin-top: 1em;
+}
+
+article.current-detail div.detail p
+{
+    text-indent: 2em;
+}

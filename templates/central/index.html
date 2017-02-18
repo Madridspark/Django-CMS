@@ -25,7 +25,7 @@
                         <li><a href="/">首页</a></li>
                         <li><a href="
                             {% if user.is_authenticated %}
-                                        /branch
+                                        {{ user.userprofile.branch.link }}
                             {% else %}
                                         /login
                             {% endif %}
@@ -33,16 +33,16 @@
                         <li><a href="/current">高校动态</a></li>
                         <li><a href="
                             {% if user.is_authenticated %}
-                                        /branch/bbs
+                                        {{ user.userprofile.branch.link }}/bbs
                             {% else %}
                                         /login
                             {% endif %}
                             ">论坛</a></li>
-                        <li><a href="/about">关于本站</a></li>
+                        <li><a href="/about?art={{ intro.theName }}">关于本站</a></li>
                     </ul>
                     <div class="font-14 nav-aside nav-content fl">
                         {% if user.is_authenticated %}
-                            欢迎, <a href="/branch">{{ user.username }}</a>
+                            欢迎, <a href="{{ user.userprofile.branch.link }}">{{ user.username }}</a>
                             <span>|</span>
                             <a href="/logout">注销</a>
                         {% else %}
@@ -58,7 +58,7 @@
         {% block hero %}
         <a class="goto fr" href="
                             {% if user.is_authenticated %}
-                                        /branch
+                                        {{ user.userprofile.branch.link }}
                             {% else %}
                                         /login
                             {% endif %}
@@ -67,6 +67,9 @@
                 去了解我的大学
             </div>
         </a>
+        <div class="qr-code" style="background-image: url(/static/upload/{{ staticInfo.theQRCode }})">
+            了解更多
+        </div>
         <div class="color-3 wrap hero-img img-rolling">
             Loading...
             <div id="hero" class="img-rolling-curr">
@@ -103,18 +106,27 @@
                     <h3 class="font-22">高校动态</h3>
                     <a href="/current" class="list-more color-a">更多>></a>
                     <ul>
-                        {% for hot in hots %}
-                        <li><a href="/branch/article/{{ hot.id }}">{{ hot.title }}</a></li>
+                        {% for current in currents %}
+                        <li>
+                            <a href="/current/{{ current.id }}">{{ current.title }}</a>
+                            <time class="font-12 color-9 fr">[{{ current.update_time }}]</time>
+                        </li>
                         {% endfor %}
                     </ul>
                 </div>
                 <div class="fl">
                     <h3 class="font-22">高校秘密</h3>
-                    <a href="/bbs" class="list-more color-a">更多>></a>
+                    <a href="
+                            {% if user.is_authenticated %}
+                                        {{ user.userprofile.branch.link }}/bbs
+                            {% else %}
+                                        /login
+                            {% endif %}
+                            " class="list-more color-a">更多>></a>
                     <div class="list-branchs">
-                        {% for branch in branchs %}
+                        {% for branch in branchs|slice:":8" %}
                         <a style="background-image: url(/static/upload/{{ branch.logo }})" href="{{ branch.link }}/bbs">
-                            <h4>{{ branch.name }}</h4> 
+                            <h4>{{ branch.name }}</h4>
                         </a>
                         {% endfor %}
                     </div>

@@ -253,11 +253,17 @@ footer
     border-radius: 5px;
 }
 
-/*.foot-about li + li::before
+.qr-code
 {
-    content: "•";
-    margin-right: 3px;
-    padding: 0px 3px;
-    font-family: Arial;
-    color: #999;
-}*/
+    position: fixed;
+    width: 100px;
+    height: 120px;
+    font-size: 16px;
+    padding-top: 100px;
+    box-sizing: border-box;
+    text-align: center;
+    background-repeat: no-repeat;
+    left: 0;
+    top: 300px;
+    background-size: 100%;
+}

@@ -135,12 +135,16 @@ STATICFILES_FINDERS = (
     "django.contrib.staticfiles.finders.AppDirectoriesFinder"
 )
 
-MEDIA_ROOT = os.path.join(os.path.join(BASE_DIR, "static"), 'upload')
+if DEBUG == True:
+    MEDIA_ROOT = os.path.join(os.path.join(BASE_DIR, "static"), 'upload')
+else:
+    MEDIA_ROOT = os.path.join(STATIC_ROOT, 'upload')
 
 SESSION_COOKIE_AGE = 60*30
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
+AUTH_PROFILE_MODULE = 'central.UserProfile'
 
 EMAIL_HOST = 'smtp.163.com'
 EMAIL_PORT = 25

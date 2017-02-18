@@ -1,0 +1,26 @@
+{% extends 'central/index.html' %}
+
+{% block title %}高校动态{% endblock %}
+{% block cssBefore %}{% endblock %}
+{% block cssBehind %}
+<link rel="stylesheet" type="text/css" href="/static/css/central/current.css">
+{% endblock %}
+{% block hero %}{% endblock %}
+
+{% block content %}
+<article class="current-list">
+    <h1>高校动态</h1>
+    <ul>
+        {% for current in currents %}
+        <li>
+            <a href="/current/{{ current.id }}">{{ current.title }}</a>
+            <time class="font-12 color-9 fr">[{{ current.update_time }}]</time>
+        </li>
+        {% endfor %}
+    </ul>
+</article>
+{% endblock %}
+
+{% block js %}
+<script src="/static/js/upload-url.js"></script>
+{% endblock %}

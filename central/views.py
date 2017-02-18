@@ -2,7 +2,7 @@
 import os
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
-from models import StaticInfo, StaticAbout, HeroImages, Page1Video, BranchList
+from models import StaticInfo, StaticAbout, HeroImages, Page1Video, Current, BranchList, UserProfile
 from django.contrib import auth
 from django.contrib.auth.models import User
 from statistic import counter
@@ -17,6 +17,7 @@ def indexContext():
         'videoFiles' : Page1Video.objects.all()[0]
     }
 
+
 def index(request):
     counter(request)
     context = {
@@ -24,10 +25,27 @@ def index(request):
         'team' : StaticAbout.objects.filter(theName='team')[0],
         'commi' : StaticAbout.objects.filter(theName='commi')[0],
         'heroImages' : HeroImages.objects.exclude(theHeroTitle='特别关注'),
-        'hots' : Column.objects.all()[0].article_set.all()[:4],
+        'currents' : Current.objects.filter(published=True)[:8],
         'branchs' : BranchList.objects.all(),
     }
     return render(request, 'central/index.html', dict(indexContext(), **context))
+
+
+def current(request):
+    counter(request)
+    context = {
+        'currents' : Current.objects.filter(published=True)[:50],
+    }
+    return render(request, 'central/current-list.html', dict(indexContext(), **context))
+
+
+def currentDetails(request, currentId):
+    counter(request)
+
+    context = {
+        'current' : Current.objects.filter(id=currentId)[0],
+    }
+    return render(request, 'central/current-detail.html', dict(indexContext(), **context))
 
 
 def about(request):
@@ -95,10 +113,12 @@ def signupCommit(request):
             username = request.POST.get('name','')
             password =request.POST.get('password','')
             email = request.POST.get('email','')
-
+            branch = request.POST.get('branch','')
+            
             if User.objects.filter(username = username).count() > 0:
                 context = {
                     'isSignupSuccess' : False,
+                    'branchs' : BranchList.objects.all(),
                     'username' : username,
                     'email' : email
                 }
@@ -109,24 +129,22 @@ def signupCommit(request):
             user.set_password(password)
             user.email = email
             user.save()
+
+            profile = UserProfile()
+            profile.user = user
+            profile.branch = BranchList.objects.filter(name=branch)[0]
+            profile.save()
+
             info = StaticInfo.objects.all()[0]
-            print info.theSigners
             info.theSigners += 1
             info.save()
-
-            # #用户扩展信息 profile
-            # profile=UserProfile()
-            # profile.user_id=user.id
-            # profile.phone=phone
-            # profile.save()
-            # 登录前需要先验证
 
             newUser = auth.authenticate(username = username,password = password)
             if newUser:
                 auth.login(request, newUser)#g*******************
                 return HttpResponseRedirect("/")
     except Exception,e:
-        return render(request, 'central/signup.html', dict(indexContext(), **{}))
+        return HttpResponseRedirect("/")
     
     return render(request, 'central/signup.html', dict(indexContext(), **{}))
 

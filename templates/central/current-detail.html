@@ -1,0 +1,24 @@
+{% extends 'central/index.html' %}
+
+{% block title %}{{ current.title }}{% endblock %}
+{% block cssBefore %}{% endblock %}
+{% block cssBehind %}
+<link rel="stylesheet" type="text/css" href="/static/css/central/current.css">
+{% endblock %}
+{% block hero %}{% endblock %}
+
+{% block content %}
+<article class="current-detail">
+    <h1>{{ current.title }}</h1>
+    <div class="detail-info">
+        作者 : {{ current.author }} | 发布时间 : {{ current.pub_time }} | 更新时间 : {{ current.update_time }}
+    </div>
+    <div class="detail">
+        {{ current.content|safe }}
+    </div>
+</article>
+{% endblock %}
+
+{% block js %}
+<script src="/static/js/upload-url.js"></script>
+{% endblock %}
