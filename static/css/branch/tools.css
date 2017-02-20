@@ -8,10 +8,13 @@ article li
 {
     font-size: 24px;
     height: 100px;
-    margin: 10px 0;
+    margin: 10px;
     padding-left: 120px;
     background-size: auto 100%;
     background-repeat: no-repeat;
+    width: 370px;
+    display: inline-block;
+    box-sizing: border-box;
 }
 
 article li a
