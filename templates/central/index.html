@@ -118,14 +118,14 @@
                     <h3 class="font-22">高校秘密</h3>
                     <a href="
                             {% if user.is_authenticated %}
-                                        {{ user.userprofile.branch.link }}/bbs
+                                        {{ user.userprofile.branch.link }}
                             {% else %}
                                         /login
                             {% endif %}
                             " class="list-more color-a">更多>></a>
                     <div class="list-branchs">
                         {% for branch in branchs|slice:":8" %}
-                        <a style="background-image: url(/static/upload/{{ branch.logo }})" href="{{ branch.link }}/bbs">
+                        <a style="background-image: url(/static/upload/{{ branch.logo }})" href="{{ branch.link }}">
                             <h4>{{ branch.name }}</h4>
                         </a>
                         {% endfor %}
